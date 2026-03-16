@@ -1,0 +1,268 @@
+/* === VARIABLES === */
+:root {
+	--verde-mexico: #006847;
+	--rojo-mexico: #ce1126;
+	--blanco: #ffffff;
+	--gris-fondo: #f8f8f8;
+	--gris-texto: #333333;
+	--gris-claro: #999999;
+	--borde: #e0e0e0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Georgia, "Times New Roman", serif;
+	line-height: 1.7;
+	color: var(--gris-texto);
+	background-color: var(--gris-fondo);
+	padding-top: 80px;
+}
+
+/* === CONTAINER === */
+.container-nota {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* === CAROUSEL === */
+.hero-carousel {
+	margin-bottom: 30px;
+	background-color: var(--blanco);
+}
+
+.carousel-item {
+	height: 400px;
+}
+
+.carousel-item img {
+	height: 400px;
+	object-fit: cover;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+	background-color: var(--blanco);
+	padding: 40px 0 60px;
+}
+
+/* === ARTÍCULO === */
+.articulo {
+	margin-bottom: 50px;
+}
+
+.categoria {
+	display: inline-block;
+	background-color: var(--verde-mexico);
+	color: var(--blanco);
+	padding: 5px 12px;
+	font-size: 0.75rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-bottom: 15px;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.articulo h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
+	line-height: 1.2;
+	margin-bottom: 15px;
+	color: var(--gris-texto);
+}
+
+.meta {
+	display: flex;
+	gap: 15px;
+	font-size: 0.9rem;
+	color: var(--gris-claro);
+	margin-bottom: 20px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid var(--borde);
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.meta span:first-child {
+	font-weight: 600;
+	color: var(--gris-texto);
+}
+
+.bajada {
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.6;
+	margin-bottom: 30px;
+	color: #444;
+	border-left: 4px solid var(--rojo-mexico);
+	padding-left: 20px;
+}
+
+.cuerpo {
+	font-size: 1.1rem;
+	line-height: 1.8;
+}
+
+.cuerpo p {
+	margin-bottom: 20px;
+	text-align: justify;
+}
+
+.cuerpo h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-top: 35px;
+	margin-bottom: 15px;
+	color: var(--verde-mexico);
+	border-bottom: 2px solid var(--verde-mexico);
+	padding-bottom: 8px;
+}
+
+/* === SEPARADOR === */
+.separador {
+	border: none;
+	border-top: 3px solid var(--verde-mexico);
+	margin: 50px 0;
+	opacity: 0.3;
+}
+
+/* === NOTAS RELACIONADAS === */
+.relacionadas {
+	margin-top: 40px;
+}
+
+.titulo-seccion {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--verde-mexico);
+	margin-bottom: 25px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--verde-mexico);
+}
+
+.nota-breve {
+	padding: 20px 0;
+	border-bottom: 1px solid var(--borde);
+}
+
+.nota-breve:last-child {
+	border-bottom: none;
+}
+
+.etiqueta {
+	display: inline-block;
+	font-size: 0.7rem;
+	font-weight: bold;
+	color: var(--verde-mexico);
+	letter-spacing: 0.5px;
+	margin-bottom: 8px;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.nota-breve h3 {
+	font-size: 1.2rem;
+	margin-bottom: 8px;
+	line-height: 1.3;
+}
+
+.nota-breve h3 a {
+	color: var(--gris-texto);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.nota-breve h3 a:hover {
+	color: var(--verde-mexico);
+}
+
+.nota-breve p {
+	font-size: 0.95rem;
+	color: #666;
+	line-height: 1.6;
+	margin: 0;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* === FOOTER === */
+.footer {
+	background-color: var(--verde-mexico);
+	color: var(--blanco);
+	padding: 30px 0;
+	text-align: center;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.footer p {
+	margin: 5px 0;
+	font-size: 0.9rem;
+}
+
+.footer strong {
+	font-size: 1.1rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+	body {
+		padding-top: 70px;
+	}
+
+	.container-nota {
+		padding: 0 15px;
+	}
+
+	.carousel-item,
+	.carousel-item img {
+		height: 250px;
+	}
+
+	.articulo h1 {
+		font-size: 1.8rem;
+	}
+
+	.bajada {
+		font-size: 1.1rem;
+	}
+
+	.cuerpo {
+		font-size: 1rem;
+	}
+
+	.cuerpo h2 {
+		font-size: 1.3rem;
+		margin-top: 25px;
+	}
+
+	.nota-breve h3 {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.articulo h1 {
+		font-size: 1.5rem;
+	}
+
+	.meta {
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.bajada {
+		font-size: 1rem;
+		padding-left: 15px;
+	}
+
+	.cuerpo {
+		font-size: 0.95rem;
+	}
+
+	.carousel-item,
+	.carousel-item img {
+		height: 200px;
+	}
+}

@@ -1,0 +1,94 @@
+/* === BOTÓN AR FLOTANTE === */
+.boton-ar-flotante {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	background: linear-gradient(135deg, var(--verde-mexico), #008556);
+	color: var(--blanco);
+	padding: 15px 25px;
+	border-radius: 50px;
+	box-shadow: 0 4px 20px rgba(0, 104, 71, 0.4);
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1rem;
+	font-family: "Segoe UI", Arial, sans-serif;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	z-index: 9999;
+	transition: all 0.3s ease;
+	border: none;
+	cursor: pointer;
+	outline: none; /* ← AGREGA ESTO */
+}
+
+/* Quita el outline al hacer clic/focus */
+.boton-ar-flotante:focus {
+	outline: none; /* ← AGREGA ESTO */
+	box-shadow: 0 4px 20px rgba(0, 104, 71, 0.4); /* Mantiene la sombra normal */
+}
+
+.boton-ar-flotante:hover {
+	background: linear-gradient(135deg, #008556, var(--verde-mexico));
+	transform: translateY(-5px);
+	box-shadow: 0 6px 30px rgba(0, 104, 71, 0.6);
+	color: var(--blanco);
+}
+
+.boton-ar-flotante:active {
+	transform: translateY(-2px);
+	outline: none; /* ← AGREGA ESTO también */
+}
+
+/* Icono del botón */
+.boton-ar-flotante .icono-ar {
+	font-size: 1.4rem;
+	animation: pulse 2s ease-in-out infinite;
+}
+
+/* Animación de pulso para llamar la atención */
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+.boton-ar-flotante:hover::before {
+	left: 100%;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+	.boton-ar-flotante {
+		bottom: 20px;
+		right: 20px;
+		padding: 12px 20px;
+		font-size: 0.9rem;
+	}
+
+	.boton-ar-flotante .icono-ar {
+		font-size: 1.2rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.boton-ar-flotante {
+		bottom: 15px;
+		right: 15px;
+		padding: 10px 15px;
+		font-size: 0.85rem;
+	}
+
+	.boton-ar-flotante .texto-ar {
+		display: none;
+	}
+
+	.boton-ar-flotante .icono-ar {
+		font-size: 1.5rem;
+		margin: 0;
+	}
+}

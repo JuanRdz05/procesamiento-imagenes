@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<title>AR Mundial 2026</title>
+		<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../CSS/mindAR.css" />
+
+		<style>
+			body {
+				background: linear-gradient(135deg, #006847 0%, #004d33 100%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			/* Contenedor más alto (vertical) */
+			#ar-wrapper {
+				position: relative;
+				width: 95%;
+				max-width: 400px;
+				height: 70vh;
+				max-height: 600px;
+				border-radius: 20px;
+				overflow: hidden;
+				border: 3px solid #f0c040;
+				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+			}
+
+			/* Contenedor interno 4:3 para AR.js */
+			#ar-inner {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				height: 0;
+				padding-bottom: 133%;
+			}
+
+			/* Escena AR mantiene proporción 4:3 */
+			a-scene {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
+			}
+
+			video,
+			canvas.a-canvas {
+				width: 100% !important;
+				height: 100% !important;
+				object-fit: cover !important;
+			}
+
+			/* HUD ajustado */
+			#hud-top {
+				top: max(20px, env(safe-area-inset-top));
+				height: auto;
+				white-space: nowrap;
+				min-height: fit-content;
+			}
+		</style>
+	</head>
+	<body style="margin: 0; overflow: hidden">
+		<a href="../index.html" id="btn-volver">← Inicio</a>
+
+		<div id="menu-overlay">
+			<div id="menu-paises">
+				<div class="menu-header">
+					<h2>MUNDIAL <span>2026</span></h2>
+					<p class="menu-subtitle">Selecciona un país</p>
+				</div>
+				<div class="paises-grid">
+					<button
+						onclick="seleccionarPais('sudafrica')"
+						class="btn-pais"
+						style="--pais-color: #006847"
+					>
+						<span class="bandera">🇿🇦</span><span class="nombre">Sudáfrica</span>
+					</button>
+					<button
+						onclick="seleccionarPais('corea')"
+						class="btn-pais"
+						style="--pais-color: #0047a0"
+					>
+						<span class="bandera">🇰🇷</span><span class="nombre">Corea</span>
+					</button>
+					<button
+						onclick="seleccionarPais('colombia')"
+						class="btn-pais"
+						style="--pais-color: #fcd116; --text-color: #333"
+					>
+						<span class="bandera">🇨🇴</span><span class="nombre">Colombia</span>
+					</button>
+					<button
+						onclick="seleccionarPais('espana')"
+						class="btn-pais"
+						style="--pais-color: #aa151b"
+					>
+						<span class="bandera">🇪🇸</span><span class="nombre">España</span>
+					</button>
+					<button
+						onclick="seleccionarPais('japon')"
+						class="btn-pais"
+						style="--pais-color: #bc002d"
+					>
+						<span class="bandera">🇯🇵</span><span class="nombre">Japón</span>
+					</button>
+					<button
+						onclick="seleccionarPais('tunez')"
+						class="btn-pais"
+						style="--pais-color: #e70013"
+					>
+						<span class="bandera">🇹🇳</span><span class="nombre">Túnez</span>
+					</button>
+					<button
+						onclick="seleccionarPais('uruguay')"
+						class="btn-pais"
+						style="--pais-color: #0081c9"
+					>
+						<span class="bandera">🇺🇾</span><span class="nombre">Uruguay</span>
+					</button>
+					<button
+						onclick="seleccionarPais('uzbekistan')"
+						class="btn-pais"
+						style="--pais-color: #0099b5"
+					>
+						<span class="bandera">🇺🇿</span
+						><span class="nombre">Uzbekistán</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="ar-wrapper">
+			<div id="ar-inner">
+				<a-scene
+					vr-mode-ui="enabled: false"
+					renderer="alpha: true; antialias: true; colorManagement: true;"
+					arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+					embedded
+				>
+					<a-marker
+						preset="hiro"
+						id="marker-hiro"
+						smooth="true"
+						smoothCount="5"
+					>
+						<a-entity
+							id="modelo-bandera"
+							position="0 0 0"
+							scale="0.1 0.1 0.1"
+							visible="true"
+						></a-entity>
+						<a-plane
+							id="plano-respaldo"
+							position="0 0 0"
+							rotation="-90 0 0"
+							width="2"
+							height="1.3"
+							visible="false"
+						></a-plane>
+					</a-marker>
+					<a-entity camera></a-entity>
+				</a-scene>
+			</div>
+		</div>
+
+		<div id="hud-top">
+			<div id="hud-pais">Selecciona un país</div>
+			<div id="indicador-estado">
+				<div class="dot" id="dot-estado"></div>
+				<span id="texto-estado">Apunta al marcador Hiro</span>
+			</div>
+		</div>
+
+		<!-- Contenedor de botones uno al lado del otro -->
+		<div id="botones-container">
+			<button id="btn-info-pais">ℹ️ Más Información</button>
+			<button id="btn-video-pais">🎬 Ver Video</button>
+			<button id="btn-particulas" disabled>💥 Particulas</button>
+		</div>
+
+		<!-- Modal de Video con Filtros Mejorado -->
+		<div id="video-modal">
+			<!-- BLOQUE 1: Video + controles de reproducción -->
+			<div class="video-container">
+				<button class="btn-cerrar-video" onclick="cerrarVideoModal()">✕</button>
+
+				<div class="loading-indicator" id="loadingIndicator">
+					<div class="spinner"></div>
+					<span>Cargando video...</span>
+					<span class="loading-progress" id="loadingProgress"></span>
+				</div>
+
+				<video id="videoInteractivo" playsinline preload="auto">
+					<source src="" type="video/mp4" />
+					Tu navegador no soporta el elemento de video.
+				</video>
+
+				<!-- Solo barra de progreso + play/volumen encima del video -->
+				<div class="video-controls" id="videoControls">
+					<div class="progress-section">
+						<div class="time-display">
+							<span id="currentTime">0:00</span>
+							<span id="duration">0:00</span>
+						</div>
+						<div class="progress-container" id="progressContainer">
+							<div class="progress-bar" id="progressBar"></div>
+						</div>
+					</div>
+					<div class="main-controls">
+						<button
+							class="btn-play-pause"
+							id="btnPlayPause"
+							onclick="togglePlayPause()"
+						>
+							▶
+						</button>
+						<div class="volume-control">
+							<span id="volumeIcon" onclick="toggleMute()">🔊</span>
+							<input
+								type="range"
+								id="volumeSlider"
+								class="volume-slider"
+								min="0"
+								max="100"
+								value="100"
+								oninput="cambiarVolumen(this.value)"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- BLOQUE 2: Panel de filtros — bloque propio debajo del video -->
+			<div class="filtros-panel">
+				<div class="filtros-titulo">🎨 Filtros</div>
+				<div class="filtros-botones">
+					<button class="btn-filtro active" onclick="aplicarFiltro('normal')">
+						Normal
+					</button>
+					<button class="btn-filtro" onclick="aplicarFiltro('blancoNegro')">
+						B&N
+					</button>
+					<button class="btn-filtro" onclick="aplicarFiltro('sepia')">
+						Sepia
+					</button>
+					<button class="btn-filtro" onclick="aplicarFiltro('invertido')">
+						Invertido
+					</button>
+					<button class="btn-filtro" onclick="aplicarFiltro('vintage')">
+						Vintage
+					</button>
+				</div>
+				<div class="brillo-control">
+					<span>Brillo:</span>
+					<input
+						type="range"
+						id="brillo"
+						min="50"
+						max="150"
+						value="100"
+						oninput="actualizarFiltros()"
+					/>
+					<span class="brillo-valor" id="valorBrillo">100%</span>
+				</div>
+			</div>
+		</div>
+
+		<script src="../JS/arLogic.js"></script>
+		<script src="../JS/videoLogic.js"></script>
+	</body>
+</html>
