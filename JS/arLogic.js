@@ -615,6 +615,18 @@ function crearExplosion() {
 	const escena = document.querySelector("a-scene").object3D;
 	const marker = document.getElementById("marker-hiro").object3D;
 
+	// === OBTENER LA BANDERA PARA ANIMARLA ===
+	const contenedorBandera = document.getElementById("modelo-bandera");
+	let banderaObject3D = null;
+	let rotacionInicialBandera = 0;
+
+	if (contenedorBandera && contenedorBandera.object3D) {
+		banderaObject3D = contenedorBandera.object3D;
+		// Guardar la rotación inicial (eje Y)
+		rotacionInicialBandera = banderaObject3D.rotation.y;
+		console.log("🚩 Bandera lista para animar");
+	}
+
 	// Crear grupo de partículas
 	sistemaParticulas = new THREE.Group();
 	marker.add(sistemaParticulas);
@@ -690,51 +702,93 @@ function crearExplosion() {
 		});
 	}
 
+	// === CONFIGURACIÓN DE DURACIÓN ===
+	const DURACION_PARTICULAS = CONFIG_PARTICULAS.duracion; // 2000ms
+	const DURACION_BANDERA = 1500; // ← Duración del giro de la bandera (1.5 segundos)
+	const DURACION_TOTAL = Math.max(DURACION_PARTICULAS, DURACION_BANDERA); // La más larga de las dos
+
 	// Animación de la explosión
 	const tiempoInicio = Date.now();
+	let particulasTerminadas = false;
+	let banderaTerminada = false;
 
-	function animarParticulas() {
+	function animar() {
 		const ahora = Date.now();
 		const transcurrido = ahora - tiempoInicio;
 
-		let particulasVivas = false;
+		// === ACTUALIZAR PARTÍCULAS ===
+		if (!particulasTerminadas) {
+			let particulasVivas = false;
 
-		particulas.forEach((p) => {
-			if (p.vida > 0) {
-				particulasVivas = true;
+			particulas.forEach((p) => {
+				if (p.vida > 0) {
+					particulasVivas = true;
 
-				// Actualizar posición
-				p.mesh.position.add(p.velocidad.clone().multiplyScalar(0.016)); // Delta time aprox
+					// Actualizar posición
+					p.mesh.position.add(p.velocidad.clone().multiplyScalar(0.016));
 
-				// Aplicar gravedad
-				p.velocidad.y -= CONFIG_PARTICULAS.gravedad * 0.016;
+					// Aplicar gravedad
+					p.velocidad.y -= CONFIG_PARTICULAS.gravedad * 0.016;
 
-				// Actualizar rotación
-				p.mesh.rotation.x += p.rotacionVel.x * 0.016;
-				p.mesh.rotation.y += p.rotacionVel.y * 0.016;
-				p.mesh.rotation.z += p.rotacionVel.z * 0.016;
+					// Actualizar rotación de partículas
+					p.mesh.rotation.x += p.rotacionVel.x * 0.016;
+					p.mesh.rotation.y += p.rotacionVel.y * 0.016;
+					p.mesh.rotation.z += p.rotacionVel.z * 0.016;
 
-				// Actualizar vida y opacidad
-				p.vida -= p.decaimiento;
-				p.mesh.material.opacity = Math.max(0, p.vida);
+					// Actualizar vida y opacidad
+					p.vida -= p.decaimiento;
+					p.mesh.material.opacity = Math.max(0, p.vida);
 
-				// Escalar hacia el final
-				const escala = Math.max(0.1, p.vida);
-				p.mesh.scale.setScalar(escala);
-			} else {
-				p.mesh.visible = false;
+					// Escalar hacia el final
+					const escala = Math.max(0.1, p.vida);
+					p.mesh.scale.setScalar(escala);
+				} else {
+					p.mesh.visible = false;
+				}
+			});
+
+			// Verificar si todas las partículas terminaron
+			if (!particulasVivas || transcurrido >= DURACION_PARTICULAS) {
+				particulasTerminadas = true;
+				// Ocultar partículas pero NO limpiar todavía
+				if (sistemaParticulas) {
+					sistemaParticulas.visible = false;
+				}
 			}
-		});
+		}
 
-		if (particulasVivas && transcurrido < CONFIG_PARTICULAS.duracion) {
-			requestAnimationFrame(animarParticulas);
+		// === ACTUALIZAR BANDERA ===
+		if (!banderaTerminada && banderaObject3D) {
+			const progresoBandera = Math.min(transcurrido / DURACION_BANDERA, 1);
+
+			// Interpolación suave de 0 a 360 grados (2π radianes)
+			const rotacionActual =
+				rotacionInicialBandera + progresoBandera * Math.PI * 2;
+			banderaObject3D.rotation.y = rotacionActual;
+
+			// Verificar si la bandera completó su giro
+			if (progresoBandera >= 1) {
+				banderaTerminada = true;
+				console.log("🚩 Bandera completó los 360°");
+			}
+		}
+
+		// === VERIFICAR SI TODO TERMINÓ ===
+		if (!particulasTerminadas || !banderaTerminada) {
+			requestAnimationFrame(animar);
 		} else {
+			// === RESTAURAR ROTACIÓN DE LA BANDERA ===
+			if (banderaObject3D) {
+				banderaObject3D.rotation.y = rotacionInicialBandera;
+				console.log("🚩 Rotación de bandera restaurada");
+			}
 			// Limpiar partículas
 			limpiarParticulas();
+			particulasActivas = false;
 		}
 	}
 
-	animarParticulas();
+	animar();
 
 	// Efecto de sonido opcional (vibración en móviles)
 	if (navigator.vibrate) {
