@@ -5,8 +5,8 @@ const datosPaises = {
 	sudafrica: {
 		titulo: "Sudáfrica",
 		color: "#006847",
-		imagen: "../MODELOS/bandera/textura_banderas/sudafrica.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/sudafrica2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Sudáfrica hizo historia al ser el primer país africano en organizar un Mundial en 2010. Su selección, los 'Bafana Bafana', es famosa por jugar al ritmo de las vuvuzelas. En ese torneo, Siphiwe Tshabalala anotó el primer gol, un momento icónico para todo el continente.",
 		trivia: [
@@ -39,8 +39,8 @@ const datosPaises = {
 	corea: {
 		titulo: "Corea del Sur",
 		color: "#0047a0",
-		imagen: "../MODELOS/bandera/textura_banderas/corea.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/corea2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Corea del Sur es la selección de Asia con más presencias mundialistas. Su mayor logro fue en 2002, cuando como co-anfitriones llegaron al cuarto lugar tras eliminar a Italia y España. Actualmente, su estrella es Son Heung-min, quien brilla en Europa.",
 		trivia: [
@@ -74,8 +74,8 @@ const datosPaises = {
 		titulo: "Colombia",
 		color: "#fcd116",
 		textColor: "#333",
-		imagen: "../MODELOS/bandera/textura_banderas/colombia.jpg",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/colombia2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"La selección de Colombia, apodada 'Los Cafeteros', deslumbró en Brasil 2014 llegando a cuartos de final. En ese torneo, James Rodríguez ganó la Bota de Oro. Son recordados históricamente por el estilo de juego de los 90 y el 'Escorpión' de René Higuita.",
 		trivia: [
@@ -104,8 +104,8 @@ const datosPaises = {
 	espana: {
 		titulo: "España",
 		color: "#aa151b",
-		imagen: "../MODELOS/bandera/textura_banderas/españa.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/españa2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"España vivió su época dorada entre 2008 y 2012, ganando dos Eurocopas y el Mundial 2010. El gol de Andrés Iniesta en la prórroga contra Holanda les dio su única estrella. Se les conoce como 'La Roja' por su característico uniforme.",
 		trivia: [
@@ -134,8 +134,8 @@ const datosPaises = {
 	japon: {
 		titulo: "Japón",
 		color: "#bc002d",
-		imagen: "../MODELOS/bandera/textura_banderas/japon.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/japon2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Los 'Samuráis Azules' son la potencia de Asia con 4 Copas Asiáticas. En Qatar 2022 sorprendieron al mundo venciendo a Alemania y España. Además de su fútbol, son admirados por su cultura de respeto y limpieza en los estadios.",
 		trivia: [
@@ -168,8 +168,8 @@ const datosPaises = {
 	tunez: {
 		titulo: "Túnez",
 		color: "#e70013",
-		imagen: "../MODELOS/bandera/textura_banderas/tunez.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/tunez2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Túnez, apodado 'Las Águilas de Cartago', fue el primer equipo africano en ganar un partido en un Mundial (Argentina 1978 contra México). Son un equipo constante en representar al norte de África en el gran escenario.",
 		trivia: [
@@ -198,8 +198,8 @@ const datosPaises = {
 	uruguay: {
 		titulo: "Uruguay",
 		color: "#0081c9",
-		imagen: "../MODELOS/bandera/textura_banderas/uruguay.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/uruguay2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Uruguay es la cuna de los Mundiales, habiendo organizado y ganado el primero en 1930. En 1950 silenciaron al estadio Maracaná venciendo a Brasil en el famoso 'Maracanazo'. Su garra característica se conoce como 'Garra Charrúa'.",
 		trivia: [
@@ -228,8 +228,8 @@ const datosPaises = {
 	uzbekistan: {
 		titulo: "Uzbekistán",
 		color: "#0099b5",
-		imagen: "../MODELOS/bandera/textura_banderas/uzbekistan.png",
-		modelo: "../MODELOS/bandera/bandera.glb",
+		imagen: "../MODELOS/bandera/textura_banderas/uzbekistan2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Uzbekistán es una potencia creciente en Asia Central. Su mayor éxito fue ganar la medalla de oro en los Juegos Asiáticos de 1994 tras su independencia. Aunque nunca han ido a un Mundial absoluto, siempre llegan a las fases finales de la clasificación.",
 		trivia: [

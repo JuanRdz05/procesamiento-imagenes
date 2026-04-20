@@ -14,7 +14,7 @@
 			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 			crossorigin="anonymous"
 		/>
-		<title>Actividades Culturales - Mundial 2026</title>
+		<title>Actividades Culturales - Impacto 2026</title>
 	</head>
 	<body>
 		<!-- NAVBAR -->
@@ -22,8 +22,8 @@
 			<div class="container-fluid">
 				<a class="navbar-brand" href="../index.html">
 					<img
-						src="https://paladarnegro.net/escudoteca/copas/copamundial/img/mundial_2026.jpg"
-						alt="Logo Mundial 2026"
+						src="../LOGO/impacto.jpg"
+						alt="Logo Impacto 2026"
 						class="logo-mundial"
 					/>
 				</a>
@@ -83,8 +83,8 @@
 
 				<hr class="separador" />
 
-				<!-- Artículo 1 -->
-				<article class="articulo">
+				<!-- Artículo 1 - MÚSICA -->
+				<article id="musica" class="articulo">
 					<div class="categoria">MÚSICA</div>
 
 					<h2>Festivales de Música en Vivo durante el Mundial</h2>
@@ -141,8 +141,8 @@
 
 				<hr class="separador" />
 
-				<!-- Artículo 2 -->
-				<article class="articulo">
+				<!-- Artículo 2 - ARTE -->
+				<article id="arte" class="articulo">
 					<div class="categoria">ARTE</div>
 
 					<h2>Exposiciones de Arte Contemporáneo y Prehispánico</h2>
@@ -192,8 +192,8 @@
 
 				<hr class="separador" />
 
-				<!-- Artículo 3 -->
-				<article class="articulo">
+				<!-- Artículo 3 - GASTRONOMÍA -->
+				<article id="gastronomia" class="articulo">
 					<div class="categoria">GASTRONOMÍA</div>
 
 					<h2>Festivales Gastronómicos: Sabores de México y el Mundo</h2>
@@ -248,8 +248,8 @@
 
 				<hr class="separador" />
 
-				<!-- Artículo 4 -->
-				<article class="articulo">
+				<!-- Artículo 4 - TRADICIONES -->
+				<article id="tradiciones" class="articulo">
 					<div class="categoria">TRADICIONES</div>
 
 					<h2>Danza Folclórica y Presentaciones de Ballet</h2>
@@ -298,6 +298,7 @@
 				</article>
 			</div>
 		</main>
+
 		<!-- BOTÓN GUÍA FLOTANTE -->
 		<button class="boton-guia-flotante" onclick="abrirModalGuia()">
 			<span class="icono-guia">📖</span>
@@ -309,7 +310,7 @@
 			<div class="modal-guia-contenido" onclick="event.stopPropagation()">
 				<!-- Header del Modal -->
 				<div class="modal-guia-header">
-					<h2>Guía de Usuario - Mundial 2026</h2>
+					<h2>Guía de Usuario - Impacto 2026</h2>
 					<p>
 						Aprende a navegar el sitio y usar la función de Realidad Aumentada
 					</p>
@@ -329,8 +330,8 @@
 						</p>
 						<ul>
 							<li>
-								<strong>Inicio:</strong> Página principal con noticias
-								destacadas y carrusel de imágenes
+								<strong>Inicio:</strong> Página principal con la presentación de
+								Impacto 2026 y eventos destacados
 							</li>
 							<li>
 								<strong>Actividades Culturales:</strong> Información sobre
@@ -408,7 +409,7 @@
 							<li>Aprender datos interesantes de forma divertida</li>
 						</ul>
 
-						<h4>❌ Cerrar Modales</h4>
+						<h4>Cerrar Modales</h4>
 						<p>
 							Todos los pop-ups (información y trivia) incluyen un botón "X" en
 							la esquina superior derecha para cerrarlos y volver a la vista AR.
@@ -429,22 +430,25 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- Boton AR -->
 		<a href="ar.html" class="boton-ar-flotante">
 			<span class="icono-ar">📱</span>
 			<span class="texto-ar">Prueba el modo AR aquí</span>
 		</a>
+
 		<!-- FOOTER -->
 		<footer class="footer">
 			<div class="container-nota">
 				<p>
-					<strong>Mundial 2026 México</strong> | Información y noticias sobre
-					actividades culturales y sociales
+					<strong>Impacto 2026</strong> | Tu guía de eventos culturales y sociales
+					del Mundial 2026
 				</p>
-				<p>Contacto: info@mundial2026.com | Tel: +52 123 456 7890</p>
+				<p>Contacto: info@impacto2026.com | Tel: +52 123 456 7890</p>
 				<p>&copy; 2026 Todos los derechos reservados</p>
 			</div>
 		</footer>
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="../JS/modal.js"></script>
 	</body>
