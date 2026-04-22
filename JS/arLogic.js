@@ -445,13 +445,22 @@ function mostrarInfoYTrivia() {
 async function lanzarTrivia(preguntas, colorPais) {
 	let aciertos = 0;
 
-	for (let i = 0; i < preguntas.length; i++) {
+	// 1. Mezclar aleatoriamente el arreglo de 6 preguntas
+	const preguntasMezcladas = [...preguntas].sort(() => Math.random() - 0.5);
+
+	// 2. Seleccionar solo las primeras 3
+	const preguntasSeleccionadas = preguntasMezcladas.slice(0, 3);
+
+	// Ahora iteramos sobre 'preguntasSeleccionadas' en lugar de 'preguntas'
+	for (let i = 0; i < preguntasSeleccionadas.length; i++) {
 		const opcionesObj = {};
-		preguntas[i].opciones.forEach((opt) => (opcionesObj[opt] = opt));
+		preguntasSeleccionadas[i].opciones.forEach(
+			(opt) => (opcionesObj[opt] = opt),
+		);
 
 		const { value: respuestaUsuario } = await Swal.fire({
-			title: `Pregunta ${i + 1} de ${preguntas.length}`,
-			text: preguntas[i].q,
+			title: `Pregunta ${i + 1} de ${preguntasSeleccionadas.length}`,
+			text: preguntasSeleccionadas[i].q,
 			input: "radio",
 			inputOptions: opcionesObj,
 			inputValidator: (value) => !value && "¡Debes elegir una opción!",
@@ -464,7 +473,7 @@ async function lanzarTrivia(preguntas, colorPais) {
 		});
 
 		// Verificación inmediata
-		if (respuestaUsuario === preguntas[i].a) {
+		if (respuestaUsuario === preguntasSeleccionadas[i].a) {
 			aciertos++;
 			await Swal.fire({
 				title: "¡Correcto! ✅",
@@ -478,7 +487,7 @@ async function lanzarTrivia(preguntas, colorPais) {
 		} else {
 			await Swal.fire({
 				title: "Incorrecto ❌",
-				text: `La respuesta correcta era: ${preguntas[i].a}`,
+				text: `La respuesta correcta era: ${preguntasSeleccionadas[i].a}`,
 				icon: "error",
 				timer: 2000,
 				showConfirmButton: false,
@@ -489,9 +498,9 @@ async function lanzarTrivia(preguntas, colorPais) {
 		}
 	}
 
-	// Resultado final
+	// Resultado final basado en la nueva longitud (3)
 	const mensajeFinal =
-		aciertos === preguntas.length
+		aciertos === preguntasSeleccionadas.length
 			? "¡Eres un experto! 🏆"
 			: aciertos >= 2
 				? "¡Buen trabajo! 👍"
@@ -499,7 +508,7 @@ async function lanzarTrivia(preguntas, colorPais) {
 
 	Swal.fire({
 		title: mensajeFinal,
-		text: `Has conseguido ${aciertos} de ${preguntas.length} puntos.`,
+		text: `Has conseguido ${aciertos} de ${preguntasSeleccionadas.length} puntos.`,
 		icon: aciertos >= 2 ? "success" : "warning",
 		confirmButtonText: "Genial",
 		confirmButtonColor: colorPais,

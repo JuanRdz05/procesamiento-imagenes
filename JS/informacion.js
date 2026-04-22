@@ -1,6 +1,12 @@
+// ============================================
+// DATOS DE PAÍSES - Información y Trivia
+// ============================================
 const datosPaises = {
 	sudafrica: {
 		titulo: "Sudáfrica",
+		color: "#006847",
+		imagen: "../MODELOS/bandera/textura_banderas/sudafrica2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Sudáfrica hizo historia al ser el primer país africano en organizar un Mundial en 2010. Su selección, los 'Bafana Bafana', es famosa por jugar al ritmo de las vuvuzelas. En ese torneo, Siphiwe Tshabalala anotó el primer gol, un momento icónico para todo el continente.",
 		trivia: [
@@ -28,10 +34,23 @@ const datosPaises = {
 				opciones: ["Pienaar", "Drogba", "Tshabalala"],
 				a: "Tshabalala",
 			},
+			{
+				q: "¿Qué país se coronó campeón en el Mundial de Sudáfrica 2010?",
+				opciones: ["Holanda", "Alemania", "España"],
+				a: "España",
+			},
+			{
+				q: "¿Cómo se llamaba la mascota oficial del Mundial 2010?",
+				opciones: ["Fuleco", "Zakumi", "Pique"],
+				a: "Zakumi",
+			},
 		],
 	},
 	corea: {
 		titulo: "Corea del Sur",
+		color: "#0047a0",
+		imagen: "../MODELOS/bandera/textura_banderas/corea2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Corea del Sur es la selección de Asia con más presencias mundialistas. Su mayor logro fue en 2002, cuando como co-anfitriones llegaron al cuarto lugar tras eliminar a Italia y España. Actualmente, su estrella es Son Heung-min, quien brilla en Europa.",
 		trivia: [
@@ -59,10 +78,24 @@ const datosPaises = {
 				opciones: ["Park Ji-sung", "Son Heung-min", "Lee Kang-in"],
 				a: "Son Heung-min",
 			},
+			{
+				q: "¿Con qué país organizó conjuntamente Corea del Sur el Mundial 2002?",
+				opciones: ["China", "Japón", "Australia"],
+				a: "Japón",
+			},
+			{
+				q: "¿A qué confederación de fútbol pertenece Corea del Sur?",
+				opciones: ["UEFA", "CONCACAF", "AFC (Asia)"],
+				a: "AFC (Asia)",
+			},
 		],
 	},
 	colombia: {
 		titulo: "Colombia",
+		color: "#fcd116",
+		textColor: "#333",
+		imagen: "../MODELOS/bandera/textura_banderas/colombia2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"La selección de Colombia, apodada 'Los Cafeteros', deslumbró en Brasil 2014 llegando a cuartos de final. En ese torneo, James Rodríguez ganó la Bota de Oro. Son recordados históricamente por el estilo de juego de los 90 y el 'Escorpión' de René Higuita.",
 		trivia: [
@@ -86,10 +119,23 @@ const datosPaises = {
 				opciones: ["Los Cafeteros", "La Tri", "Los Incas"],
 				a: "Los Cafeteros",
 			},
+			{
+				q: "¿Quién era el director técnico de Colombia en el Mundial 2014?",
+				opciones: ["José Pékerman", "Carlos Valderrama", "Reinaldo Rueda"],
+				a: "José Pékerman",
+			},
+			{
+				q: "¿Cuál es el color principal de su camiseta titular?",
+				opciones: ["Rojo", "Azul", "Amarillo"],
+				a: "Amarillo",
+			},
 		],
 	},
 	espana: {
 		titulo: "España",
+		color: "#aa151b",
+		imagen: "../MODELOS/bandera/textura_banderas/españa2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"España vivió su época dorada entre 2008 y 2012, ganando dos Eurocopas y el Mundial 2010. El gol de Andrés Iniesta en la prórroga contra Holanda les dio su única estrella. Se les conoce como 'La Roja' por su característico uniforme.",
 		trivia: [
@@ -113,10 +159,23 @@ const datosPaises = {
 				opciones: ["Ninguno", "Uno", "Dos"],
 				a: "Uno",
 			},
+			{
+				q: "¿En qué año ganaron la primera Eurocopa de su época dorada?",
+				opciones: ["2004", "2008", "2012"],
+				a: "2008",
+			},
+			{
+				q: "¿Quién fue el portero y capitán en el Mundial 2010?",
+				opciones: ["Iker Casillas", "David de Gea", "Pepe Reina"],
+				a: "Iker Casillas",
+			},
 		],
 	},
 	japon: {
 		titulo: "Japón",
+		color: "#bc002d",
+		imagen: "../MODELOS/bandera/textura_banderas/japon2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Los 'Samuráis Azules' son la potencia de Asia con 4 Copas Asiáticas. En Qatar 2022 sorprendieron al mundo venciendo a Alemania y España. Además de su fútbol, son admirados por su cultura de respeto y limpieza en los estadios.",
 		trivia: [
@@ -144,10 +203,23 @@ const datosPaises = {
 				opciones: ["Cantar mucho", "Limpiar las gradas", "Llevar banderas"],
 				a: "Limpiar las gradas",
 			},
+			{
+				q: "¿De qué color es tradicionalmente la camiseta local de Japón?",
+				opciones: ["Rojo", "Blanco", "Azul"],
+				a: "Azul",
+			},
+			{
+				q: "¿Qué famosa serie animada de fútbol es originaria de Japón?",
+				opciones: ["Supercampeones", "Inazuma Eleven", "Ambas son correctas"],
+				a: "Ambas son correctas",
+			},
 		],
 	},
 	tunez: {
 		titulo: "Túnez",
+		color: "#e70013",
+		imagen: "../MODELOS/bandera/textura_banderas/tunez2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Túnez, apodado 'Las Águilas de Cartago', fue el primer equipo africano en ganar un partido en un Mundial (Argentina 1978 contra México). Son un equipo constante en representar al norte de África en el gran escenario.",
 		trivia: [
@@ -171,10 +243,23 @@ const datosPaises = {
 				opciones: ["Sur", "Oeste", "Norte"],
 				a: "Norte",
 			},
+			{
+				q: "¿Qué colores predominan en su bandera y uniforme?",
+				opciones: ["Verde y Blanco", "Rojo y Blanco", "Negro y Rojo"],
+				a: "Rojo y Blanco",
+			},
+			{
+				q: "¿A qué confederación pertenece la selección de Túnez?",
+				opciones: ["CAF (África)", "UEFA (Europa)", "AFC (Asia)"],
+				a: "CAF (África)",
+			},
 		],
 	},
 	uruguay: {
 		titulo: "Uruguay",
+		color: "#0081c9",
+		imagen: "../MODELOS/bandera/textura_banderas/uruguay2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Uruguay es la cuna de los Mundiales, habiendo organizado y ganado el primero en 1930. En 1950 silenciaron al estadio Maracaná venciendo a Brasil en el famoso 'Maracanazo'. Su garra característica se conoce como 'Garra Charrúa'.",
 		trivia: [
@@ -198,10 +283,23 @@ const datosPaises = {
 				opciones: ["1", "2", "3"],
 				a: "2",
 			},
+			{
+				q: "¿Contra qué selección jugó Uruguay la final del Mundial 1930?",
+				opciones: ["Brasil", "Argentina", "Italia"],
+				a: "Argentina",
+			},
+			{
+				q: "¿Qué color le da su apodo más famoso a la selección uruguaya?",
+				opciones: ["Celeste", "Blanco", "Negro"],
+				a: "Celeste",
+			},
 		],
 	},
 	uzbekistan: {
 		titulo: "Uzbekistán",
+		color: "#0099b5",
+		imagen: "../MODELOS/bandera/textura_banderas/uzbekistan2.png",
+		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Uzbekistán es una potencia creciente en Asia Central. Su mayor éxito fue ganar la medalla de oro en los Juegos Asiáticos de 1994 tras su independencia. Aunque nunca han ido a un Mundial absoluto, siempre llegan a las fases finales de la clasificación.",
 		trivia: [
@@ -228,6 +326,16 @@ const datosPaises = {
 					"No participan",
 				],
 				a: "Llegan a fases finales",
+			},
+			{
+				q: "¿De qué país formaba parte Uzbekistán antes de su independencia?",
+				opciones: ["Unión Soviética", "Yugoslavia", "Imperio Otomano"],
+				a: "Unión Soviética",
+			},
+			{
+				q: "¿A qué confederación pertenece para buscar su boleto al Mundial?",
+				opciones: ["UEFA", "AFC (Asia)", "OFC (Oceanía)"],
+				a: "AFC (Asia)",
 			},
 		],
 	},
