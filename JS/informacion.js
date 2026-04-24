@@ -44,12 +44,32 @@ const datosPaises = {
 				opciones: ["Fuleco", "Zakumi", "Pique"],
 				a: "Zakumi",
 			},
+			{
+				q: "¿En qué ciudad se jugó la final del Mundial de Sudáfrica 2010?",
+				opciones: ["Ciudad del Cabo", "Johannesburgo", "Durban"],
+				a: "Johannesburgo",
+			},
+			{
+				q: "¿Quién fue el entrenador de Sudáfrica en el Mundial 2010?",
+				opciones: ["Carlos Alberto Parreira", "Joel Santana", "Gordon Igesund"],
+				a: "Carlos Alberto Parreira",
+			},
+			{
+				q: "¿Qué animal es un símbolo nacional vinculado al deporte sudafricano?",
+				opciones: ["Leopardo", "Springbok (Gacela)", "León"],
+				a: "Springbok (Gacela)",
+			},
+			{
+				q: "¿Cuál fue el himno oficial del Mundial 2010 interpretado por Shakira?",
+				opciones: ["Waka Waka", "La Copa de la Vida", "We Are One"],
+				a: "Waka Waka",
+			},
 		],
 	},
 	corea: {
 		titulo: "Corea del Sur",
 		color: "#0047a0",
-		imagen: "../MODELOS/bandera/textura_banderas/corea2.png",
+		imagen: "../MODELOS/bandera/textura_banderas/coreadelsur2.png",
 		modelo: "../MODELOS/bandera/bandera2.glb",
 		historia:
 			"Corea del Sur es la selección de Asia con más presencias mundialistas. Su mayor logro fue en 2002, cuando como co-anfitriones llegaron al cuarto lugar tras eliminar a Italia y España. Actualmente, su estrella es Son Heung-min, quien brilla en Europa.",
@@ -87,6 +107,26 @@ const datosPaises = {
 				q: "¿A qué confederación de fútbol pertenece Corea del Sur?",
 				opciones: ["UEFA", "CONCACAF", "AFC (Asia)"],
 				a: "AFC (Asia)",
+			},
+			{
+				q: "¿Qué animal es el símbolo de la Asociación de Fútbol de Corea?",
+				opciones: ["Tigre", "Dragón", "Oso"],
+				a: "Tigre",
+			},
+			{
+				q: "¿Qué club europeo fichó a Son Heung-min en 2015?",
+				opciones: ["Bayern Munich", "Tottenham Hotspur", "Manchester United"],
+				a: "Tottenham Hotspur",
+			},
+			{
+				q: "¿Cuál es el clásico rival asiático de Corea del Sur en el fútbol?",
+				opciones: ["Japón", "China", "Irán"],
+				a: "Japón",
+			},
+			{
+				q: "¿Cuántas veces seguidas ha clasificado al Mundial (1986-2022)?",
+				opciones: ["10 veces", "5 veces", "7 veces"],
+				a: "10 veces",
 			},
 		],
 	},
@@ -129,6 +169,26 @@ const datosPaises = {
 				opciones: ["Rojo", "Azul", "Amarillo"],
 				a: "Amarillo",
 			},
+			{
+				q: "¿En qué año se fundó la Federación Colombiana de Fútbol?",
+				opciones: ["1910", "1924", "1950"],
+				a: "1924",
+			},
+			{
+				q: "¿Cuál fue el primer Mundial al que clasificó Colombia?",
+				opciones: ["Chile 1962", "Suiza 1954", "México 1970"],
+				a: "Chile 1962",
+			},
+			{
+				q: "¿Qué jugador colombiano anotó un gol olímpico en Chile 62?",
+				opciones: ["Carlos Valderrama", "Marcos Coll", "Faustino Asprilla"],
+				a: "Marcos Coll",
+			},
+			{
+				q: "¿Qué título internacional de selecciones mayores ganó Colombia en 2001?",
+				opciones: ["Copa Oro", "Copa América", "Copa Confederaciones"],
+				a: "Copa América",
+			},
 		],
 	},
 	espana: {
@@ -168,6 +228,26 @@ const datosPaises = {
 				q: "¿Quién fue el portero y capitán en el Mundial 2010?",
 				opciones: ["Iker Casillas", "David de Gea", "Pepe Reina"],
 				a: "Iker Casillas",
+			},
+			{
+				q: "¿En qué año se fundó la Real Federación Española de Fútbol?",
+				opciones: ["1909", "1920", "1930"],
+				a: "1909",
+			},
+			{
+				q: "¿Quién es el máximo goleador histórico de la selección española?",
+				opciones: ["Fernando Torres", "David Villa", "Raúl González"],
+				a: "David Villa",
+			},
+			{
+				q: "¿En qué Juegos Olímpicos ganó España la medalla de oro en fútbol?",
+				opciones: ["Barcelona 1992", "Sídney 2000", "Tokio 2020"],
+				a: "Barcelona 1992",
+			},
+			{
+				q: "¿Qué entrenador lideró a España a ganar el Mundial 2010?",
+				opciones: ["Luis Aragonés", "Vicente del Bosque", "Luis Enrique"],
+				a: "Vicente del Bosque",
 			},
 		],
 	},
@@ -213,6 +293,26 @@ const datosPaises = {
 				opciones: ["Supercampeones", "Inazuma Eleven", "Ambas son correctas"],
 				a: "Ambas son correctas",
 			},
+			{
+				q: "¿Cuál es el nombre de la liga profesional de fútbol de Japón?",
+				opciones: ["J-League", "K-League", "Nippon League"],
+				a: "J-League",
+			},
+			{
+				q: "¿En qué año clasificó Japón a su primer Mundial?",
+				opciones: ["1994", "1998", "2002"],
+				a: "1998",
+			},
+			{
+				q: "¿Qué animal místico aparece en el escudo de la selección japonesa?",
+				opciones: ["Dragón", "Yatagarasu (Cuervo de 3 patas)", "Tigre blanco"],
+				a: "Yatagarasu (Cuervo de 3 patas)",
+			},
+			{
+				q: "¿Qué club italiano fichó a Hidetoshi Nakata, histórico jugador japonés?",
+				opciones: ["Roma", "Juventus", "AC Milan"],
+				a: "Roma",
+			},
 		],
 	},
 	tunez: {
@@ -253,6 +353,26 @@ const datosPaises = {
 				opciones: ["CAF (África)", "UEFA (Europa)", "AFC (Asia)"],
 				a: "CAF (África)",
 			},
+			{
+				q: "¿En qué año ganó Túnez su única Copa Africana de Naciones?",
+				opciones: ["2004", "1996", "2010"],
+				a: "2004",
+			},
+			{
+				q: "¿Cuál es el principal estadio donde juega la selección de Túnez?",
+				opciones: ["Estadio de Radès", "Estadio del Cairo", "Estadio de Cartago"],
+				a: "Estadio de Radès",
+			},
+			{
+				q: "¿Qué jugador tunecino nacionalizado destacó en la Copa Africana 2004?",
+				opciones: ["Wahbi Khazri", "Francileudo Santos", "Radhi Jaïdi"],
+				a: "Francileudo Santos",
+			},
+			{
+				q: "¿En qué Mundial Túnez logró su primera victoria en este siglo (2018)?",
+				opciones: ["Rusia 2018", "Qatar 2022", "Brasil 2014"],
+				a: "Rusia 2018",
+			},
 		],
 	},
 	uruguay: {
@@ -292,6 +412,26 @@ const datosPaises = {
 				q: "¿Qué color le da su apodo más famoso a la selección uruguaya?",
 				opciones: ["Celeste", "Blanco", "Negro"],
 				a: "Celeste",
+			},
+			{
+				q: "¿Cuántas Copas América ha ganado Uruguay en su historia?",
+				opciones: ["12", "15", "14"],
+				a: "15",
+			},
+			{
+				q: "¿Quién es el máximo goleador histórico de la selección uruguaya?",
+				opciones: ["Edinson Cavani", "Diego Forlán", "Luis Suárez"],
+				a: "Luis Suárez",
+			},
+			{
+				q: "¿En qué año ganó Uruguay su segunda medalla de oro olímpica?",
+				opciones: ["1924", "1928", "1932"],
+				a: "1928",
+			},
+			{
+				q: "¿Qué jugador uruguayo picó el penal contra Ghana en 2010?",
+				opciones: ["Diego Forlán", "Sebastián Abreu", "Luis Suárez"],
+				a: "Sebastián Abreu",
 			},
 		],
 	},
@@ -337,6 +477,26 @@ const datosPaises = {
 				opciones: ["UEFA", "AFC (Asia)", "OFC (Oceanía)"],
 				a: "AFC (Asia)",
 			},
+			{
+				q: "¿En qué año se afilió la Federación de Uzbekistán a la FIFA?",
+				opciones: ["1991", "1994", "2000"],
+				a: "1994",
+			},
+			{
+				q: "¿Quién es considerado uno de sus mejores jugadores históricos (ex Dinamo de Kiev)?",
+				opciones: ["Odil Ahmedov", "Maksim Shatskikh", "Eldor Shomurodov"],
+				a: "Maksim Shatskikh",
+			},
+			{
+				q: "¿Cuál es el principal estadio de la selección de Uzbekistán?",
+				opciones: ["Estadio Bunyodkor", "Estadio Central", "Estadio Olímpico"],
+				a: "Estadio Bunyodkor",
+			},
+			{
+				q: "¿Qué torneo internacional juvenil organizó Uzbekistán en 2023?",
+				opciones: ["Mundial Sub-20", "Copa Asiática Sub-20", "Mundial Sub-17"],
+				a: "Copa Asiática Sub-20",
+			},
 		],
 	},
 };
@@ -363,13 +523,21 @@ function mostrarInfoYTrivia(paisKey) {
 async function lanzarTrivia(preguntas) {
 	let aciertos = 0;
 
-	for (let i = 0; i < preguntas.length; i++) {
+	// Mezclar las preguntas aleatoriamente de forma segura (Fisher-Yates) y tomar solo 5
+	const preguntasMezcladas = [...preguntas];
+	for (let i = preguntasMezcladas.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[preguntasMezcladas[i], preguntasMezcladas[j]] = [preguntasMezcladas[j], preguntasMezcladas[i]];
+	}
+	const preguntasSeleccionadas = preguntasMezcladas.slice(0, 5);
+
+	for (let i = 0; i < preguntasSeleccionadas.length; i++) {
 		const opcionesObj = {};
-		preguntas[i].opciones.forEach((opt) => (opcionesObj[opt] = opt));
+		preguntasSeleccionadas[i].opciones.forEach((opt) => (opcionesObj[opt] = opt));
 
 		const { value: respuestaUsuario } = await Swal.fire({
-			title: `Pregunta ${i + 1} de ${preguntas.length}`,
-			text: preguntas[i].q,
+			title: `Pregunta ${i + 1} de ${preguntasSeleccionadas.length}`,
+			text: preguntasSeleccionadas[i].q,
 			input: "radio",
 			inputOptions: opcionesObj,
 			inputValidator: (value) => !value && "¡Debes elegir una opción!",
@@ -378,7 +546,7 @@ async function lanzarTrivia(preguntas) {
 		});
 
 		// Verificación inmediata
-		if (respuestaUsuario === preguntas[i].a) {
+		if (respuestaUsuario === preguntasSeleccionadas[i].a) {
 			aciertos++;
 			await Swal.fire({
 				title: "¡Correcto!",
@@ -389,7 +557,7 @@ async function lanzarTrivia(preguntas) {
 		} else {
 			await Swal.fire({
 				title: "Incorrecto",
-				text: `La respuesta correcta era: ${preguntas[i].a}`,
+				text: `La respuesta correcta era: ${preguntasSeleccionadas[i].a}`,
 				icon: "error",
 				timer: 2000,
 				showConfirmButton: false,
@@ -400,9 +568,9 @@ async function lanzarTrivia(preguntas) {
 	// Resultado final
 	Swal.fire({
 		title:
-			aciertos === preguntas.length ? "¡Eres un experto!" : "Trivia finalizada",
-		text: `Has conseguido ${aciertos} de ${preguntas.length} puntos.`,
-		icon: aciertos >= 2 ? "success" : "warning",
+			aciertos === preguntasSeleccionadas.length ? "¡Eres un experto!" : "Trivia finalizada",
+		text: `Has conseguido ${aciertos} de ${preguntasSeleccionadas.length} puntos.`,
+		icon: aciertos >= 3 ? "success" : "warning",
 		confirmButtonText: "Genial",
 		confirmButtonColor: "#006847",
 	});
