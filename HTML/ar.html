@@ -76,88 +76,16 @@
 	<body style="margin: 0; overflow: hidden">
 		<a href="../index.html" id="btn-volver">← Inicio</a>
 
-		<div id="menu-overlay">
-			<div id="menu-paises">
-				<div class="menu-header">
-					<h2>MUNDIAL <span>2026</span></h2>
-					<p class="menu-subtitle">Selecciona un país</p>
-				</div>
-				<div class="paises-grid">
-					<button
-						onclick="seleccionarPais('sudafrica')"
-						class="btn-pais"
-						style="--pais-color: #006847"
-					>
-						<span class="bandera">🇿🇦</span><span class="nombre">Sudáfrica</span>
-					</button>
-					<button
-						onclick="seleccionarPais('corea')"
-						class="btn-pais"
-						style="--pais-color: #0047a0"
-					>
-						<span class="bandera">🇰🇷</span><span class="nombre">Corea</span>
-					</button>
-					<button
-						onclick="seleccionarPais('colombia')"
-						class="btn-pais"
-						style="--pais-color: #fcd116;"
-					>
-						<span class="bandera">🇨🇴</span><span class="nombre">Colombia</span>
-					</button>
-					<button
-						onclick="seleccionarPais('espana')"
-						class="btn-pais"
-						style="--pais-color: #aa151b"
-					>
-						<span class="bandera">🇪🇸</span><span class="nombre">España</span>
-					</button>
-					<button
-						onclick="seleccionarPais('japon')"
-						class="btn-pais"
-						style="--pais-color: #bc002d"
-					>
-						<span class="bandera">🇯🇵</span><span class="nombre">Japón</span>
-					</button>
-					<button
-						onclick="seleccionarPais('tunez')"
-						class="btn-pais"
-						style="--pais-color: #e70013"
-					>
-						<span class="bandera">🇹🇳</span><span class="nombre">Túnez</span>
-					</button>
-					<button
-						onclick="seleccionarPais('uruguay')"
-						class="btn-pais"
-						style="--pais-color: #0081c9"
-					>
-						<span class="bandera">🇺🇾</span><span class="nombre">Uruguay</span>
-					</button>
-					<button
-						onclick="seleccionarPais('uzbekistan')"
-						class="btn-pais"
-						style="--pais-color: #0099b5"
-					>
-						<span class="bandera">🇺🇿</span
-						><span class="nombre">Uzbekistán</span>
-					</button>
-				</div>
-			</div>
-		</div>
-
 		<div id="ar-wrapper">
 			<div id="ar-inner">
 				<a-scene
 					vr-mode-ui="enabled: false"
 					renderer="alpha: true; antialias: true; colorManagement: true;"
-					arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+					arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono;"
 					embedded
 				>
-					<a-marker
-						preset="hiro"
-						id="marker-hiro"
-						smooth="true"
-						smoothCount="5"
-					>
+					<!-- Contenedor del modelo que se reasignará dinámicamente -->
+					<a-entity id="modelo-container" visible="false">
 						<a-entity
 							id="modelo-bandera"
 							position="0 0 0"
@@ -172,17 +100,90 @@
 							height="1.3"
 							visible="false"
 						></a-plane>
-					</a-marker>
+					</a-entity>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-sudafrica-escudo.patt"
+						id="marker-sudafrica"
+						class="pais-marker"
+						data-pais="sudafrica"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-corea-escudo.patt"
+						id="marker-corea"
+						class="pais-marker"
+						data-pais="corea"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-colombia-escudo.patt"
+						id="marker-colombia"
+						class="pais-marker"
+						data-pais="colombia"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-espana-escudo.patt"
+						id="marker-espana"
+						class="pais-marker"
+						data-pais="espana"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-japon-escudo.patt"
+						id="marker-japon"
+						class="pais-marker"
+						data-pais="japon"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-tunez-escudo.patt"
+						id="marker-tunez"
+						class="pais-marker"
+						data-pais="tunez"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-uruguay-escudo.patt"
+						id="marker-uruguay"
+						class="pais-marker"
+						data-pais="uruguay"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+					<a-marker
+						type="pattern"
+						url="../MARCADORES/pattern-uzbekistan-escudo.patt"
+						id="marker-uzbekistan"
+						class="pais-marker"
+						data-pais="uzbekistan"
+						smooth="true"
+						smoothCount="5"
+					></a-marker>
+
 					<a-entity camera></a-entity>
 				</a-scene>
 			</div>
 		</div>
 
-		<div id="hud-top">
-			<div id="hud-pais">Selecciona un país</div>
+		<div id="hud-top" class="visible">
+			<div id="hud-pais">Apunta a un escudo</div>
 			<div id="indicador-estado">
 				<div class="dot" id="dot-estado"></div>
-				<span id="texto-estado">Apunta al marcador Hiro</span>
+				<span id="texto-estado">Apunta a un escudo de país</span>
 			</div>
 		</div>
 
