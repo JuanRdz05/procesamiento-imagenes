@@ -808,27 +808,28 @@ let marcadorDetectado = false;
 // FUNCIONES DE SELECCIÓN DE PAÍS
 // ============================================
 function seleccionarPais(id) {
-	console.log("🖱️ Seleccionado:", id);
+	console.log("🖱️ Seleccionado automáticamente:", id);
 	paisSeleccionado = id;
 
 	const datos = datosPaises[id];
-	const menuOverlay = document.getElementById("menu-overlay");
 	const hudTop = document.getElementById("hud-top");
 	const hudPais = document.getElementById("hud-pais");
 
 	// Actualizar HUD
-	hudPais.textContent = datos.titulo;
-	hudPais.style.color = datos.color;
+	if (hudPais) {
+		hudPais.textContent = datos.titulo;
+		hudPais.style.color = datos.color;
+	}
 
-	// Ocultar menú, mostrar HUD
-	menuOverlay.classList.add("oculto");
-	hudTop.classList.add("visible");
+	// Mostrar HUD
+	if (hudTop) hudTop.classList.add("visible");
 
 	// Mostrar botón de información si no existe
 	crearBotonInfo();
 
 	// Intentar cargar modelo 3D
 	cargarModelo(datos);
+	
 	// Inicializar el botón de video para este país
 	if (typeof inicializarVideo === "function") {
 		inicializarVideo(id);
@@ -1064,44 +1065,76 @@ async function lanzarTrivia(preguntas, colorPais) {
 // ============================================
 // EVENTOS DEL MARCADOR AR
 // ============================================
+let marcadorActivo = null; // Referencia al marcador actual detectado
+
 window.addEventListener("load", () => {
 	console.log("🚀 AR iniciado");
 
-	const marker = document.getElementById("marker-hiro");
+	const marcadores = document.querySelectorAll(".pais-marker");
 	const dotEstado = document.getElementById("dot-estado");
 	const textoEstado = document.getElementById("texto-estado");
-	const contenedor = document.getElementById("modelo-bandera");
+	const hudPais = document.getElementById("hud-pais");
+	const botonesContainer = document.getElementById("botones-container");
+	const modeloContainer = document.getElementById("modelo-container");
+	const modeloBandera = document.getElementById("modelo-bandera");
 	const planoRespaldo = document.getElementById("plano-respaldo");
 
-	marker.addEventListener("markerFound", () => {
-		console.log("🎯 Marcador detectado");
-		marcadorDetectado = true;
-		dotEstado.style.backgroundColor = "#2ecc71";
-		textoEstado.textContent = "¡Detectado!";
+	marcadores.forEach(marker => {
+		marker.addEventListener("markerFound", () => {
+			const paisId = marker.getAttribute("data-pais");
+			console.log("🎯 Marcador detectado:", paisId);
+			marcadorDetectado = true;
+			marcadorActivo = marker; // Guardar referencia al marcador activo
+			dotEstado.style.backgroundColor = "#2ecc71";
+			textoEstado.textContent = "¡Detectado!";
 
-		if (paisSeleccionado) {
+			// Mostrar botones
+			if (botonesContainer) botonesContainer.style.display = "flex";
+
+			// Reubicar el modelo dentro del marcador detectado
+			marker.appendChild(modeloContainer);
+
+			// Seleccionar automáticamente el país
+			seleccionarPais(paisId);
+
 			if (modeloCargado) {
-				contenedor.setAttribute("visible", "true");
+				modeloContainer.setAttribute("visible", "true");
+				modeloBandera.setAttribute("visible", "true");
 				planoRespaldo.setAttribute("visible", "false");
+				if (typeof actualizarEstadoBotonParticulas === 'function') {
+					actualizarEstadoBotonParticulas(true);
+				}
 			} else {
-				contenedor.setAttribute("visible", "false");
+				modeloContainer.setAttribute("visible", "true");
+				modeloBandera.setAttribute("visible", "false");
 				planoRespaldo.setAttribute("visible", "true");
 			}
-		}
-	});
+		});
 
-	marker.addEventListener("markerLost", () => {
-		console.log("❌ Marcador perdido");
-		marcadorDetectado = false;
-		dotEstado.style.backgroundColor = "#e74c3c";
-		textoEstado.textContent = "Apunta al marcador";
+		marker.addEventListener("markerLost", () => {
+			console.log("❌ Marcador perdido");
+			marcadorDetectado = false;
+			marcadorActivo = null;
 
-		contenedor.setAttribute("visible", "false");
-		planoRespaldo.setAttribute("visible", "false");
+			// Restaurar HUD inicial
+			if (hudPais) {
+				hudPais.textContent = "Apunta a un escudo";
+				hudPais.style.color = "";
+			}
+			dotEstado.style.backgroundColor = "#e74c3c";
+			textoEstado.textContent = "Apunta a un escudo de país";
+
+			// Ocultar botones
+			if (botonesContainer) botonesContainer.style.display = "none";
+
+			modeloContainer.setAttribute("visible", "false");
+			if (typeof actualizarEstadoBotonParticulas === 'function') {
+				actualizarEstadoBotonParticulas(false);
+			}
+		});
 	});
 });
 
-// ============================================
 // SISTEMA DE PARTÍCULAS - EXPLOSIÓN
 // ============================================
 
@@ -1165,7 +1198,9 @@ function crearExplosion() {
 
 	// Obtener la escena de Three.js desde A-Frame
 	const escena = document.querySelector("a-scene").object3D;
-	const marker = document.getElementById("marker-hiro").object3D;
+	// Usar el marcador activo actual en lugar del hiro fijo
+	const markerEl = marcadorActivo || document.querySelector(".pais-marker");
+	const marker = markerEl ? markerEl.object3D : escena;
 
 	// === OBTENER LA BANDERA PARA ANIMARLA ===
 	const contenedorBandera = document.getElementById("modelo-bandera");
@@ -1358,7 +1393,8 @@ function limpiarParticulas() {
 			}
 		});
 
-		const marker = document.getElementById("marker-hiro").object3D;
+		const markerEl = marcadorActivo || document.querySelector(".pais-marker");
+		const marker = markerEl ? markerEl.object3D : null;
 		if (marker && sistemaParticulas.parent === marker) {
 			marker.remove(sistemaParticulas);
 		}
@@ -1395,22 +1431,9 @@ aplicarTextura = function (modelo3D, urlImagen) {
 	}
 };
 
-// Sobrescribir eventos del marcador para controlar el botón
+// Inicializar botón de partículas al cargar
 window.addEventListener("load", () => {
-	// Inicializar botón de partículas
-	inicializarBotonParticulas();
-
-	const marker = document.getElementById("marker-hiro");
-
-	// Sobrescribir eventos existentes
-	marker.addEventListener("markerFound", () => {
-		// Habilitar botón solo si el modelo está cargado
-		if (modeloCargado && paisSeleccionado) {
-			actualizarEstadoBotonParticulas(true);
-		}
-	});
-
-	marker.addEventListener("markerLost", () => {
-		actualizarEstadoBotonParticulas(false);
-	});
+	if(typeof inicializarBotonParticulas === 'function') {
+		inicializarBotonParticulas();
+	}
 });
