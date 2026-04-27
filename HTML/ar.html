@@ -6,7 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 		/>
-		<title>AR Mundial 2026</title>
+		<title>AR Impacto 2026</title>
 		<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 		<script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -22,9 +22,10 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				margin: 0;
+				overflow: hidden;
 			}
 
-			/* Contenedor más alto (vertical) */
 			#ar-wrapper {
 				position: relative;
 				width: 95%;
@@ -37,7 +38,6 @@
 				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 			}
 
-			/* Contenedor interno 4:3 para AR.js */
 			#ar-inner {
 				position: absolute;
 				top: 50%;
@@ -48,7 +48,6 @@
 				padding-bottom: 133%;
 			}
 
-			/* Escena AR mantiene proporción 4:3 */
 			a-scene {
 				position: absolute !important;
 				top: 0 !important;
@@ -57,23 +56,324 @@
 				height: 100% !important;
 			}
 
-			video,
-			canvas.a-canvas {
+			video, canvas.a-canvas {
 				width: 100% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 			}
 
-			/* HUD ajustado */
 			#hud-top {
 				top: max(20px, env(safe-area-inset-top));
 				height: auto;
 				white-space: nowrap;
 				min-height: fit-content;
 			}
+
+			/* ============================================
+			   MODAL DE VIDEO - CORREGIDO (para que se vea todo)
+			   ============================================ */
+			#video-modal {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.95);
+				z-index: 2000;
+				display: none;
+				justify-content: flex-start;
+				align-items: center;
+				flex-direction: column;
+				padding-top: 40px;
+				padding-bottom: 20px;
+				overflow-y: auto;
+			}
+
+			#video-modal.visible {
+				display: flex;
+			}
+
+			/* Contenedor del video con altura fija y proporción correcta */
+			.video-container {
+				position: relative;
+				width: 90%;
+				max-width: 500px;
+				background: #000;
+				border-radius: 15px;
+				overflow: hidden;
+				aspect-ratio: 16 / 9;
+				flex-shrink: 0;
+			}
+
+			.video-container video {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				background: #000;
+			}
+
+			/* Canvas para filtros */
+			#canvas-filtro-ar {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100% !important;
+				height: 100% !important;
+				display: none;
+				pointer-events: none;
+				z-index: 5;
+			}
+
+			.btn-cerrar-video {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				background: rgba(0, 0, 0, 0.7);
+				color: white;
+				border: none;
+				border-radius: 50%;
+				width: 35px;
+				height: 35px;
+				font-size: 20px;
+				cursor: pointer;
+				z-index: 20;
+			}
+
+			.video-controls {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+				padding: 30px 15px 15px;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				z-index: 10;
+			}
+
+			.video-container:hover .video-controls,
+			.video-controls.show {
+				opacity: 1;
+			}
+
+			.progress-section {
+				margin-bottom: 8px;
+			}
+
+			.time-display {
+				display: flex;
+				justify-content: space-between;
+				color: white;
+				font-size: 12px;
+				margin-bottom: 5px;
+			}
+
+			.progress-container {
+				background: rgba(255, 255, 255, 0.3);
+				height: 5px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.progress-bar {
+				background: #f0c040;
+				width: 0%;
+				height: 100%;
+				border-radius: 5px;
+			}
+
+			.main-controls {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				justify-content: center;
+			}
+
+			.btn-play-pause {
+				background: #f0c040;
+				border: none;
+				color: #000;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				font-size: 18px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.volume-control {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				background: rgba(255, 255, 255, 0.2);
+				padding: 5px 12px;
+				border-radius: 25px;
+			}
+
+			.volume-control span {
+				cursor: pointer;
+				color: white;
+			}
+
+			.volume-slider {
+				width: 70px;
+				height: 4px;
+			}
+
+			.loading-indicator {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background: rgba(0, 0, 0, 0.8);
+				padding: 15px 25px;
+				border-radius: 10px;
+				color: white;
+				display: none;
+				align-items: center;
+				gap: 10px;
+				z-index: 25;
+			}
+
+			.loading-indicator.visible {
+				display: flex;
+			}
+
+			.spinner {
+				width: 20px;
+				height: 20px;
+				border: 2px solid white;
+				border-top-color: #f0c040;
+				border-radius: 50%;
+				animation: spin 1s linear infinite;
+			}
+
+			@keyframes spin {
+				to { transform: rotate(360deg); }
+			}
+
+			/* Panel de filtros - ahora con scroll si es necesario */
+			.filtros-panel {
+				padding: 15px;
+				background: rgba(0, 0, 0, 0.9);
+				border-radius: 15px;
+				width: 90%;
+				max-width: 500px;
+				margin-top: 15px;
+				margin-bottom: 20px;
+				max-height: 45vh;
+				overflow-y: auto;
+			}
+
+			.filtros-titulo {
+				color: white;
+				font-size: 1.1rem;
+				margin-bottom: 10px;
+				text-align: center;
+			}
+
+			.filtros-botones {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				margin-bottom: 15px;
+				justify-content: center;
+			}
+
+			.filtros-botones .btn-filtro {
+				padding: 6px 12px;
+				background: #333;
+				border: 1px solid #00a86b;
+				color: #00a86b;
+				border-radius: 20px;
+				cursor: pointer;
+				font-size: 0.7rem;
+				transition: all 0.3s ease;
+			}
+
+			.filtros-botones .btn-filtro:hover,
+			.filtros-botones .btn-filtro.active {
+				background: #00a86b;
+				color: white;
+			}
+
+			.control-slider-ar {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				color: white;
+				margin-bottom: 8px;
+				flex-wrap: wrap;
+			}
+
+			.control-slider-ar span:first-child {
+				min-width: 70px;
+				font-size: 0.8rem;
+			}
+
+			.control-slider-ar input {
+				flex: 1;
+				height: 4px;
+				border-radius: 5px;
+				background: #555;
+			}
+
+			.control-slider-ar .valor-actual {
+				min-width: 45px;
+				text-align: center;
+				font-size: 0.8rem;
+				background: #333;
+				padding: 2px 6px;
+				border-radius: 10px;
+			}
+
+			.controles-rgb {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				margin-top: 10px;
+			}
+
+			.control-rgb {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				color: white;
+			}
+
+			.control-rgb label {
+				min-width: 50px;
+				font-size: 0.8rem;
+			}
+
+			.control-rgb input {
+				flex: 1;
+				height: 4px;
+			}
+
+			.btn-reset-ar {
+				width: 100%;
+				padding: 10px;
+				background: #dc3545;
+				color: white;
+				border: none;
+				border-radius: 10px;
+				cursor: pointer;
+				margin-top: 15px;
+				font-size: 0.9rem;
+			}
+
+			.btn-reset-ar:hover {
+				background: #c82333;
+			}
 		</style>
 	</head>
-	<body style="margin: 0; overflow: hidden">
+	<body>
 		<a href="../index.html" id="btn-volver">← Inicio</a>
 
 		<div id="ar-wrapper">
@@ -84,200 +384,136 @@
 					arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono;"
 					embedded
 				>
-					<!-- Contenedor del modelo que se reasignará dinámicamente -->
 					<a-entity id="modelo-container" visible="false">
-						<a-entity
-							id="modelo-bandera"
-							position="0 0 0"
-							scale="0.1 0.1 0.1"
-							visible="true"
-						></a-entity>
-						<a-plane
-							id="plano-respaldo"
-							position="0 0 0"
-							rotation="-90 0 0"
-							width="2"
-							height="1.3"
-							visible="false"
-						></a-plane>
+						<a-entity id="modelo-bandera" position="0 0 0" scale="0.1 0.1 0.1" visible="true"></a-entity>
+						<a-plane id="plano-respaldo" position="0 0 0" rotation="-90 0 0" width="2" height="1.3" visible="false"></a-plane>
 					</a-entity>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-sudafrica-escudo.patt"
-						id="marker-sudafrica"
-						class="pais-marker"
-						data-pais="sudafrica"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-corea-escudo.patt"
-						id="marker-corea"
-						class="pais-marker"
-						data-pais="corea"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-colombia-escudo.patt"
-						id="marker-colombia"
-						class="pais-marker"
-						data-pais="colombia"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-espana-escudo.patt"
-						id="marker-espana"
-						class="pais-marker"
-						data-pais="espana"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-japon-escudo.patt"
-						id="marker-japon"
-						class="pais-marker"
-						data-pais="japon"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-tunez-escudo.patt"
-						id="marker-tunez"
-						class="pais-marker"
-						data-pais="tunez"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-uruguay-escudo.patt"
-						id="marker-uruguay"
-						class="pais-marker"
-						data-pais="uruguay"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-					<a-marker
-						type="pattern"
-						url="../MARCADORES/pattern-uzbekistan-escudo.patt"
-						id="marker-uzbekistan"
-						class="pais-marker"
-						data-pais="uzbekistan"
-						smooth="true"
-						smoothCount="5"
-					></a-marker>
-
+					<a-marker type="pattern" url="../MARCADORES/pattern-sudafrica-escudo.patt" id="marker-sudafrica" class="pais-marker" data-pais="sudafrica" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-corea-escudo.patt" id="marker-corea" class="pais-marker" data-pais="corea" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-colombia-escudo.patt" id="marker-colombia" class="pais-marker" data-pais="colombia" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-espana-escudo.patt" id="marker-espana" class="pais-marker" data-pais="espana" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-japon-escudo.patt" id="marker-japon" class="pais-marker" data-pais="japon" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-tunez-escudo.patt" id="marker-tunez" class="pais-marker" data-pais="tunez" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-uruguay-escudo.patt" id="marker-uruguay" class="pais-marker" data-pais="uruguay" smooth="true" smoothCount="5"></a-marker>
+					<a-marker type="pattern" url="../MARCADORES/pattern-uzbekistan-escudo.patt" id="marker-uzbekistan" class="pais-marker" data-pais="uzbekistan" smooth="true" smoothCount="5"></a-marker>
 					<a-entity camera></a-entity>
 				</a-scene>
 			</div>
 		</div>
 
 		<div id="hud-top" class="visible">
-			<div id="hud-pais">Apunta a un escudo</div>
+			<div id="hud-pais">Apunta a una bandera</div>
 			<div id="indicador-estado">
 				<div class="dot" id="dot-estado"></div>
-				<span id="texto-estado">Apunta a un escudo de país</span>
+				<span id="texto-estado">Apunta a una bandera</span>
 			</div>
 		</div>
 
-		<!-- Contenedor de botones uno al lado del otro -->
 		<div id="botones-container">
 			<button id="btn-info-pais">ℹ️ Más Información</button>
 			<button id="btn-video-pais">🎬 Ver Video</button>
 			<button id="btn-particulas" disabled>💥 Particulas</button>
 		</div>
 
-		<!-- Modal de Video con Filtros Mejorado -->
+		<!-- Modal de Video -->
 		<div id="video-modal">
-			<!-- BLOQUE 1: Video + controles de reproducción -->
 			<div class="video-container">
 				<button class="btn-cerrar-video" onclick="cerrarVideoModal()">✕</button>
-
 				<div class="loading-indicator" id="loadingIndicator">
 					<div class="spinner"></div>
 					<span>Cargando video...</span>
 					<span class="loading-progress" id="loadingProgress"></span>
 				</div>
-
-				<video id="videoInteractivo" playsinline preload="auto">
+				<video id="videoInteractivoAR" playsinline preload="auto">
 					<source src="" type="video/mp4" />
 					Tu navegador no soporta el elemento de video.
 				</video>
-
-				<!-- Solo barra de progreso + play/volumen encima del video -->
+				<canvas id="canvas-filtro-ar"></canvas>
 				<div class="video-controls" id="videoControls">
 					<div class="progress-section">
 						<div class="time-display">
-							<span id="currentTime">0:00</span>
-							<span id="duration">0:00</span>
+							<span id="currentTimeAR">0:00</span>
+							<span id="durationAR">0:00</span>
 						</div>
-						<div class="progress-container" id="progressContainer">
-							<div class="progress-bar" id="progressBar"></div>
+						<div class="progress-container" id="progressContainerAR">
+							<div class="progress-bar" id="progressBarAR"></div>
 						</div>
 					</div>
 					<div class="main-controls">
-						<button
-							class="btn-play-pause"
-							id="btnPlayPause"
-							onclick="togglePlayPause()"
-						>
-							▶
-						</button>
+						<button class="btn-play-pause" id="btnPlayPauseAR" onclick="togglePlayPause()">▶</button>
 						<div class="volume-control">
-							<span id="volumeIcon" onclick="toggleMute()">🔊</span>
-							<input
-								type="range"
-								id="volumeSlider"
-								class="volume-slider"
-								min="0"
-								max="100"
-								value="100"
-								oninput="cambiarVolumen(this.value)"
-							/>
+							<span id="volumeIconAR" onclick="toggleMuteAR()">🔊</span>
+							<input type="range" id="volumeSliderAR" class="volume-slider" min="0" max="100" value="100" oninput="cambiarVolumenAR(this.value)" />
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- BLOQUE 2: Panel de filtros — bloque propio debajo del video -->
+			<!-- Panel de filtros -->
 			<div class="filtros-panel">
-				<div class="filtros-titulo">🎨 Filtros</div>
+				<div class="filtros-titulo">🎨 Filtros en Vivo</div>
 				<div class="filtros-botones">
-					<button class="btn-filtro active" onclick="aplicarFiltro('normal')">
-						Normal
-					</button>
-					<button class="btn-filtro" onclick="aplicarFiltro('blancoNegro')">
-						B&N
-					</button>
-					<button class="btn-filtro" onclick="aplicarFiltro('sepia')">
-						Sepia
-					</button>
-					<button class="btn-filtro" onclick="aplicarFiltro('invertido')">
-						Invertido
-					</button>
-					<button class="btn-filtro" onclick="aplicarFiltro('vintage')">
-						Vintage
-					</button>
+					<button class="btn-filtro active" onclick="aplicarFiltroAR('normal')">Normal</button>
+					<button class="btn-filtro" onclick="aplicarFiltroAR('desenfoque')">🌫️ Desenfoque</button>
+					<button class="btn-filtro" onclick="aplicarFiltroAR('pixelado')">📱 Pixelado</button>
+					<button class="btn-filtro" onclick="aplicarFiltroAR('termica')">🔥 Térmica</button>
+					<button class="btn-filtro" onclick="aplicarFiltroAR('suavizado')">✨ Suavizado</button>
+					<button class="btn-filtro" onclick="aplicarFiltroAR('pastel')">🌸 Pastel</button>
+					<button class="btn-filtro" onclick="aplicarFiltroAR('altaSaturacion')">🌈 Alta Saturación</button>
 				</div>
-				<div class="brillo-control">
-					<span>Brillo:</span>
-					<input
-						type="range"
-						id="brillo"
-						min="50"
-						max="150"
-						value="100"
-						oninput="actualizarFiltros()"
-					/>
-					<span class="brillo-valor" id="valorBrillo">100%</span>
+
+				<h4 style="color:white; font-size:0.9rem; margin:10px 0 5px;">🎚️ Ajustes Manuales</h4>
+				
+				<div class="control-slider-ar">
+					<span>💡 Brillo</span>
+					<input type="range" id="brilloAR" min="0" max="200" value="100" oninput="actualizarFiltrosAR()" />
+					<span class="valor-actual" id="valorBrilloAR">100%</span>
 				</div>
+				
+				<div class="control-slider-ar">
+					<span>🎨 Contraste</span>
+					<input type="range" id="contrasteAR" min="0" max="200" value="100" oninput="actualizarFiltrosAR()" />
+					<span class="valor-actual" id="valorContrasteAR">100%</span>
+				</div>
+				
+				<div class="control-slider-ar">
+					<span>🌈 Saturación</span>
+					<input type="range" id="saturacionAR" min="0" max="300" value="100" oninput="actualizarFiltrosAR()" />
+					<span class="valor-actual" id="valorSaturacionAR">100%</span>
+				</div>
+				
+				<div class="control-slider-ar">
+					<span>🌫️ Desenfoque</span>
+					<input type="range" id="desenfoqueAR" min="0" max="20" value="0" oninput="actualizarFiltrosAR()" />
+					<span class="valor-actual" id="valorDesenfoqueAR">0px</span>
+				</div>
+				
+				<div class="control-slider-ar">
+					<span>📱 Pixelado</span>
+					<input type="range" id="pixeladoAR" min="0" max="30" value="0" oninput="actualizarFiltrosAR()" />
+					<span class="valor-actual" id="valorPixeladoAR">0px</span>
+				</div>
+
+				<h4 style="color:white; font-size:0.9rem; margin:10px 0 5px;">🎨 Ajuste de Color (RGB)</h4>
+				<div class="controles-rgb">
+					<div class="control-rgb">
+						<label style="color:#ff6b6b">🔴 Rojo</label>
+						<input type="range" id="ajusteRAR" min="-100" max="100" value="0" oninput="actualizarAjusteColorAR()" />
+						<span class="valor-actual" id="valorRAR">0</span>
+					</div>
+					<div class="control-rgb">
+						<label style="color:#51cf66">🟢 Verde</label>
+						<input type="range" id="ajusteGAR" min="-100" max="100" value="0" oninput="actualizarAjusteColorAR()" />
+						<span class="valor-actual" id="valorGAR">0</span>
+					</div>
+					<div class="control-rgb">
+						<label style="color:#339af0">🔵 Azul</label>
+						<input type="range" id="ajusteBAR" min="-100" max="100" value="0" oninput="actualizarAjusteColorAR()" />
+						<span class="valor-actual" id="valorBAR">0</span>
+					</div>
+				</div>
+
+				<button class="btn-reset-ar" onclick="resetearFiltrosGeneral()">🔄 Resetear Todos los Filtros</button>
 			</div>
 		</div>
 

@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="CSS/culturales.css" />
 		<link rel="stylesheet" href="CSS/boton-ar.css" />
 		<link rel="stylesheet" href="CSS/boton-guia.css" />
-		<link rel="stylesheet" href="CSS/video.css" />
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -113,25 +112,25 @@
 		<!-- CONTENIDO PRINCIPAL -->
 		<main class="main-content">
 			<div class="container-nota">
-				<!-- Artículo Principal - Presentación de Impacto 2026 -->
+				<!-- Artículo Principal - Presentación de Impacto '26 -->
 				<article class="articulo">
-					<div class="categoria">BIENVENIDA</div>
+					<div class="categoria">BIENVENIDO(A)</div>
 
-					<h1>Impacto 2026: Tu Guía Cultural y Social del Mundial</h1>
+					<h1>Impacto '26: Tu Guía Cultural y Social del Mundial</h1>
 
 					<div class="meta">
 						<span>9 de Febrero, 2026</span>
 					</div>
 
 					<div class="bajada">
-						Impacto 2026 es tu plataforma definitiva para descubrir todos los
+						Impacto '26 es tu plataforma definitiva para descubrir todos los
 						eventos culturales y sociales que acompañarán al Mundial de Fútbol
 						más grande de la historia.
 					</div>
 
 					<div class="cuerpo">
 						<p>
-							<strong>Impacto 2026</strong> nace con la misión de conectar a los
+							<strong>Impacto '26</strong> nace con la misión de conectar a los
 							aficionados, viajeros y locales con la agenda más completa de
 							actividades durante el Mundial 2026. No solo se trata de fútbol:
 							celebramos la diversidad cultural, la integración social y el
@@ -146,7 +145,7 @@
 							México, Guadalajara y Monterrey.
 						</p>
 
-						<h2>¿Qué encontrarás en Impacto 2026?</h2>
+						<h2>¿Qué encontrarás en Impacto '26?</h2>
 
 						<p>
 							En la sección de <strong>Actividades Culturales</strong> podrás
@@ -166,7 +165,7 @@
 						<h2>Más que un Mundial, una experiencia única</h2>
 
 						<p>
-							Impacto 2026 es el punto de encuentro para quienes quieren vivir el
+							Impacto '26 es el punto de encuentro para quienes quieren vivir el
 							Mundial más allá del estadio. Prepárate para sumergirte en una
 							celebración sin precedentes que unirá a personas de todo el mundo
 							a través de la cultura, la convivencia y, por supuesto, la pasión
@@ -180,86 +179,6 @@
 						</p>
 					</div>
 				</article>
-
-				<!-- Separador -->
-				<hr class="separador" />
-
-				<!-- Sección Video Interactivo -->
-				<section class="seccion-video-interactivo">
-					<div class="container-nota">
-						<h2>Experimenta el Mundial 2026</h2>
-						<div class="video-player-wrapper">
-							<!-- Video -->
-							<div class="video-container-interactive">
-								<video id="videoInteractivo" autoplay muted loop playsinline>
-									<source
-										src="VIDEO/Mexico City Theme x FIFA World Cup 26™ by Mexican Institute Of Sound.mp4"
-										type="video/mp4"
-									/>
-									Tu navegador no soporta video HTML5.
-								</video>
-							</div>
-
-							<!-- Panel de Controles -->
-							<div class="controles-video">
-								<h3>Controles Visuales</h3>
-
-								<!-- Filtros Predefinidos -->
-								<div class="grupo-controles">
-									<h4>Filtros</h4>
-									<div class="botones-filtro">
-										<button
-											class="btn-filtro active"
-											onclick="aplicarFiltro('normal')"
-										>
-											Normal
-										</button>
-										<button
-											class="btn-filtro"
-											onclick="aplicarFiltro('blancoNegro')"
-										>
-											Blanco y Negro
-										</button>
-										<button class="btn-filtro" onclick="aplicarFiltro('sepia')">
-											Sepia
-										</button>
-										<button
-											class="btn-filtro"
-											onclick="aplicarFiltro('invertido')"
-										>
-											Invertido
-										</button>
-										<button
-											class="btn-filtro"
-											onclick="aplicarFiltro('vintage')"
-										>
-											Vintage
-										</button>
-									</div>
-								</div>
-
-								<!-- Controles de Brillo -->
-								<div class="grupo-controles">
-									<h4>Brillo</h4>
-									<div class="control-slider">
-										<span class="icono-control">🔅</span>
-										<input
-											type="range"
-											id="brillo"
-											min="0"
-											max="200"
-											value="100"
-											class="slider"
-											oninput="actualizarFiltros()"
-										/>
-										<span class="icono-control">🔆</span>
-										<span class="valor-actual" id="valorBrillo">100%</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
 
 				<!-- Separador -->
 				<hr class="separador" />
@@ -400,124 +319,37 @@
 		<!-- MODAL DE GUÍA -->
 		<div class="modal-guia" id="modalGuia" onclick="cerrarModalGuia(event)">
 			<div class="modal-guia-contenido" onclick="event.stopPropagation()">
-				<!-- Header del Modal -->
 				<div class="modal-guia-header">
-					<h2>Guía de Usuario - Impacto 2026</h2>
-					<p>
-						Aprende a navegar el sitio y usar la función de Realidad Aumentada
-					</p>
-					<button class="boton-cerrar-modal" onclick="cerrarModalGuia()">
-						×
-					</button>
+					<h2>Guía de Usuario - Impacto '26</h2>
+					<p>Aprende a navegar el sitio y usar la función de Realidad Aumentada</p>
+					<button class="boton-cerrar-modal" onclick="cerrarModalGuia()">×</button>
 				</div>
-
-				<!-- Body del Modal -->
 				<div class="modal-guia-body">
-					<!-- Sección 1: Navegación del Sitio -->
 					<div class="seccion-guia">
 						<h3>Navegación del Sitio</h3>
-						<p>
-							Nuestro sitio está dividido en tres secciones principales que
-							puedes acceder desde el menú de navegación en la parte superior:
-						</p>
+						<p>Nuestro sitio está dividido en tres secciones principales que puedes acceder desde el menú de navegación en la parte superior:</p>
 						<ul>
-							<li>
-								<strong>Inicio:</strong> Página principal con la presentación de
-								Impacto 2026 y eventos destacados
-							</li>
-							<li>
-								<strong>Actividades Culturales:</strong> Información sobre
-								festivales, exposiciones de arte y eventos gastronómicos
-							</li>
-							<li>
-								<strong>Actividades Sociales:</strong> Fan zones, programas de
-								voluntariado y tours turísticos
-							</li>
+							<li><strong>Inicio:</strong> Página principal con la presentación de Impacto 2026 y eventos destacados</li>
+							<li><strong>Actividades Culturales:</strong> Información sobre festivales, exposiciones de arte y eventos gastronómicos</li>
+							<li><strong>Actividades Sociales:</strong> Fan zones, programas de voluntariado y tours turísticos</li>
 						</ul>
 					</div>
-
-					<!-- Sección 2: Función AR -->
 					<div class="seccion-guia">
 						<h3>Función de Realidad Aumentada (AR)</h3>
-						<p>
-							La experiencia AR te permitirá visualizar modelos 3D relacionados
-							con el Mundial 2026 directamente desde tu dispositivo móvil.
-						</p>
-
+						<p>La experiencia AR te permitirá visualizar modelos 3D relacionados con las países que jugarán en México con motivo del Mundial 2026 directamente desde tu dispositivo móvil.</p>
 						<h4>¿Cómo acceder al modo AR?</h4>
-						<div class="paso-ar">
-							<strong>Paso 1:</strong>
-							Haz clic en el botón verde "Prueba el modo AR aquí" ubicado en la
-							esquina inferior derecha de cualquier página.
-						</div>
-
-						<div class="paso-ar">
-							<strong>Paso 2:</strong>
-							Escanea el código QR que aparecerá en pantalla usando la cámara de
-							tu dispositivo móvil.
-						</div>
-
-						<div class="paso-ar">
-							<strong>Paso 3:</strong>
-							El modelo 3D correspondiente al código QR aparecerá en tu pantalla
-							sobre tu entorno real.
-						</div>
+						<div class="paso-ar"><strong>Paso 1:</strong> Haz clic en el botón verde ubicado en la esquina inferior derecha de cualquier página.</div>
+						<div class="paso-ar"><strong>Paso 2:</strong> Escanea una de las banderas usando la cámara de tu dispositivo móvil.</div>
+						<div class="paso-ar"><strong>Paso 3:</strong> El modelo 3D correspondiente a cada bandera aparecerá en tu pantalla sobre tu entorno real.</div>
 					</div>
-
-					<!-- Sección 3: Controles AR -->
 					<div class="seccion-guia">
 						<h3>Controles en el Modo AR</h3>
-						<p>
-							Una vez dentro del modo AR, tendrás acceso a las siguientes
-							funciones:
-						</p>
-
-						<h4>🔄 Botón de Animación 360°</h4>
-						<p>
-							Activa una rotación automática del modelo para verlo desde todos
-							los ángulos. Presiona nuevamente para detener la rotación.
-						</p>
-
+						<h4>💥 Botón de Partículas</h4>
+						<p>Activa una explosión de partículas y a su vez muestra una rotación automática del modelo para verlo desde todos los ángulos.</p>
 						<h4>ℹ️ Botón de Información</h4>
-						<p>
-							Al presionar este botón se abrirá un pop-up con información
-							detallada sobre el modelo que estás visualizando, incluyendo:
-						</p>
-						<ul>
-							<li>Nombre del estadio o monumento</li>
-							<li>Ubicación y datos históricos</li>
-							<li>Datos curiosos relacionados con el Mundial 2026</li>
-							<li>País representado (si aplica)</li>
-						</ul>
-
-						<h4>Botón de Trivia</h4>
-						<p>
-							Dentro del pop-up de información encontrarás un botón "Iniciar
-							Trivia" que te permitirá:
-						</p>
-						<ul>
-							<li>Responder preguntas sobre la información mostrada</li>
-							<li>Poner a prueba tus conocimientos del Mundial</li>
-							<li>Aprender datos interesantes de forma divertida</li>
-						</ul>
-
-						<h4>Cerrar Modales</h4>
-						<p>
-							Todos los pop-ups (información y trivia) incluyen un botón "X" en
-							la esquina superior derecha para cerrarlos y volver a la vista AR.
-						</p>
-					</div>
-
-					<!-- Sección 4: Requisitos -->
-					<div class="seccion-guia">
-						<h3><span class="icono-seccion">⚙️</span> Requisitos Técnicos</h3>
-						<p>Para usar la función AR necesitas:</p>
-						<ul>
-							<li>Dispositivo móvil con cámara funcional</li>
-							<li>Permitir acceso a la cámara cuando se solicite</li>
-							<li>Buena iluminación en el entorno</li>
-							<li>Conexión estable a internet</li>
-						</ul>
+						<p>Al presionar este botón se abrirá un pop-up con información detallada sobre el país. También es posible ver las estadisticas de cada país y contestar una trivia en este apartado.</p>
+						<h4>🎬 Botón de Video</h4>
+						<p>Abre un video interactivo con filtros en tiempo real (desenfoque, pixelado, térmica, ajuste RGB, etc.)</p>
 					</div>
 				</div>
 			</div>
@@ -532,10 +364,7 @@
 		<!-- FOOTER -->
 		<footer class="footer">
 			<div class="container-nota">
-				<p>
-					<strong>Impacto 2026</strong> | Tu guía de eventos culturales y sociales
-					del Mundial 2026
-				</p>
+				<p><strong>Impacto 2026</strong> | Tu guía de eventos culturales y sociales del Mundial 2026</p>
 				<p>Contacto: info@impacto2026.com | Tel: +52 123 456 7890</p>
 				<p>&copy; 2026 Todos los derechos reservados</p>
 			</div>
@@ -543,6 +372,5 @@
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="JS/modal.js"></script>
-		<script src="JS/filtros.js"></script>
 	</body>
 </html>
