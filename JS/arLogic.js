@@ -8,6 +8,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/sudafrica2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "Sudáfrica hizo historia al ser el primer anfitrión africano en organizar un Mundial en 2010, torneo donde España se coronó campeón en la final jugada en Johannesburgo y cuya mascota fue Zakumi. El himno oficial fue el famoso 'Waka Waka' de Shakira. Su selección, los 'Bafana Bafana', es famosa por jugar al ritmo de las vuvuzelas y tener a la gacela (Springbok) como símbolo nacional. Dirigidos por Carlos Alberto Parreira, vivieron un momento icónico cuando Siphiwe Tshabalala anotó el primer gol.",
+		"datoCurioso": "Sudáfrica fue el primer país africano en organizar un Mundial en 2010.",
 		"trivia": [
 			{
 				"q": "¿Qué hito alcanzó Sudáfrica en 2010?",
@@ -46,13 +47,13 @@ const datosPaises = {
 				"a": "Tshabalala"
 			},
 			{
-				"q": "¿Qué país se coronó campeón en el Mundial de Sudáfrica 2010?",
+				"q": "¿Contra que país jugaron en su debut como anfitriones en el Mundial 2010?",
 				"opciones": [
 					"Holanda",
 					"Alemania",
-					"España"
+					"México"
 				],
-				"a": "España"
+				"a": "México"
 			},
 			{
 				"q": "¿Cómo se llamaba la mascota oficial del Mundial 2010?",
@@ -107,6 +108,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/coreadelsur2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "Corea del Sur, perteneciente a la AFC (Asia), es la selección asiática con más presencias mundialistas, habiendo clasificado 10 veces seguidas entre 1986 y 2022. Su mayor logro fue en 2002, cuando organizaron el torneo conjuntamente con Japón (su clásico rival) y llegaron al cuarto lugar tras eliminar a potencias como Italia y España. El tigre es el símbolo de su federación. Actualmente, su estrella máxima es Son Heung-min, quien fue fichado por el club europeo Tottenham Hotspur en 2015.",
+		"datoCurioso": "Corea del Sur alcanzó las semifinales del Mundial 2002 como co-anfitrión.",
 		"trivia": [
 			{
 				"q": "¿Cuál es el mejor puesto histórico de Corea del Sur?",
@@ -207,6 +209,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/colombia2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "Fundada en 1924, la selección de Colombia (apodada 'Los Cafeteros') viste su tradicional camiseta de color amarillo. Clasificaron a su primer Mundial en Chile 1962, donde Marcos Coll anotó un histórico gol olímpico. Su mayor título internacional es la Copa América de 2001. A nivel mundial, deslumbraron en Brasil 2014 llegando a cuartos bajo la dirección técnica de José Pékerman, torneo donde James Rodríguez ganó la Bota de Oro. Son recordados por figuras como René Higuita, creador de 'El Escorpión'.",
+		"datoCurioso": "Colombia tuvo su mejor actuación en Brasil 2014 llegando a cuartos de final.",
 		"trivia": [
 			{
 				"q": "¿Qué premio ganó James Rodríguez en 2014?",
@@ -306,6 +309,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/españa2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "La Real Federación Española de Fútbol se fundó en 1909. España vivió su época dorada iniciando con la Eurocopa 2008, seguida por su único campeonato en el Mundial 2010 bajo el entrenador Vicente del Bosque, ganándole a Holanda con un gol de Iniesta. En ese equipo destacaba Iker Casillas como portero y capitán. Conocida como 'La Roja', la selección también ostenta el oro de los Juegos Olímpicos de Barcelona 1992 y tiene a David Villa como su máximo goleador histórico.",
+		"datoCurioso": "España ganó su primer Mundial en 2010 tras vencer a Países Bajos en la final.",
 		"trivia": [
 			{
 				"q": "¿Quién marcó el gol de la final en 2010?",
@@ -320,10 +324,10 @@ const datosPaises = {
 				"q": "¿Contra quién jugaron la final del Mundial 2010?",
 				"opciones": [
 					"Alemania",
-					"Holanda",
+					"Países Bajos",
 					"Francia"
 				],
-				"a": "Holanda"
+				"a": "Países Bajos"
 			},
 			{
 				"q": "¿Cómo se conoce popularmente a la selección?",
@@ -405,6 +409,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/japon2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "La selección japonesa, conocida como los 'Samuráis Azules' por su camiseta azul, luce en su escudo al Yatagarasu (un cuervo de 3 patas). Clasificaron a su primer Mundial en 1998 y cuentan con la liga J-League. Han ganado 4 Copas Asiáticas y exportado talentos como Hidetoshi Nakata a la Roma. En Qatar 2022 sorprendieron al vencer a Alemania y España. Además, inspiraron series como Supercampeones e Inazuma Eleven, y sus aficionados son admirados por limpiar las gradas de los estadios.",
+		"datoCurioso": "Japón ha llegado a octavos de final en cuatro ocasiones: 2002, 2010, 2018 y 2022.",
 		"trivia": [
 			{
 				"q": "¿Cómo se apoda a la selección japonesa?",
@@ -504,6 +509,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/tunez2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "Túnez, del norte de África y de la CAF, es conocida como 'Las Águilas de Cartago'. Con uniformes rojo y blanco, hicieron historia en Argentina 78 al ser el primer africano en ganar un partido mundialista venciendo a México. Su sede es el Estadio de Radès, donde ganaron su única Copa Africana en 2004 con gran actuación de Francileudo Santos. Recientemente, en Rusia 2018, lograron volver a saborear una victoria mundialista.",
+		"datoCurioso": "Túnez fue el primer país africano en ganar un partido de Mundial (1978).",
 		"trivia": [
 			{
 				"q": "¿Cuál es el apodo de Túnez?",
@@ -603,6 +609,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/uruguay2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "Uruguay, conocida como 'La Celeste', es la cuna de los Mundiales al organizar y ganar el primero en 1930 venciendo a Argentina. Cuentan con 4 estrellas FIFA y presumen de 15 Copas América y un oro olímpico en 1928. En 1950 protagonizaron el 'Maracanazo', una victoria en Brasil forjada por su 'Garra Charrúa'. Su goleador histórico es Luis Suárez, quien formó parte del plantel en 2010, torneo donde Sebastián Abreu inmortalizó un penal a lo Panenka.",
+		"datoCurioso": "Uruguay ganó el primer Mundial de la historia en 1930.",
 		"trivia": [
 			{
 				"q": "¿En qué año organizó Uruguay el primer Mundial?",
@@ -702,6 +709,7 @@ const datosPaises = {
 		"imagen": "../MODELOS/bandera/textura_banderas/uzbekistan2.png",
 		"modelo": "../MODELOS/bandera/bandera2.glb",
 		"historia": "Uzbekistán es una potencia de Asia Central afiliada a la FIFA desde 1994 y de la AFC tras separarse de la Unión Soviética. Aunque nunca han clasificado a un Mundial absoluto, siempre llegan a las fases finales de eliminatorias y juegan en el Estadio Bunyodkor. Su primer éxito fue el oro en los Juegos Asiáticos de 1994. En 2023 organizaron la Copa Asiática Sub-20. Uno de sus mejores jugadores históricos es Maksim Shatskikh, ex del Dinamo de Kiev.",
+		"datoCurioso": "Uzbekistán nunca antes había clasificado a un Mundial. ¡Será su debut en 2026!",
 		"trivia": [
 			{
 				"q": "¿En qué evento ganaron la medalla de oro en 1994?",
@@ -938,7 +946,7 @@ function usarPlanoRespaldo(datos) {
 }
 
 // ============================================
-// BOTÓN DE INFORMACIÓN Y TRIVIA
+// BOTÓN DE INFORMACIÓN Y TRIVIA CON ESTADÍSTICAS
 // ============================================
 function crearBotonInfo() {
 	const boton = document.getElementById("btn-info-pais");
@@ -959,19 +967,273 @@ function mostrarInfoYTrivia() {
 	const info = datosPaises[paisSeleccionado];
 	if (!info) return;
 
+	// ============================================
+	// DATOS DE ESTADÍSTICAS POR PAÍS
+	// ============================================
+	const estadisticasPaises = {
+		"sudafrica": {
+			rankingFIFA: "60",
+			mundialesJugados: "8",
+			titulosMundiales: "0",
+			mejorResultado: "Fase de grupos",
+			clasificacion2026: "Eliminatorias CAF",
+			debutante: false
+		},
+		"corea": {
+			rankingFIFA: "23",
+			mundialesJugados: "11",
+			titulosMundiales: "0",
+			mejorResultado: "4° puesto (2002)",
+			clasificacion2026: "Eliminatorias AFC",
+			debutante: false
+		},
+		"colombia": {
+			rankingFIFA: "12",
+			mundialesJugados: "7",
+			titulosMundiales: "0",
+			mejorResultado: "Cuartos (2014)",
+			clasificacion2026: "Eliminatorias CONMEBOL",
+			debutante: false
+		},
+		"espana": {
+			rankingFIFA: "8",
+			mundialesJugados: "16",
+			titulosMundiales: "1",
+			mejorResultado: "🏆 Campeón (2010)",
+			clasificacion2026: "Eliminatorias UEFA",
+			debutante: false
+		},
+		"japon": {
+			rankingFIFA: "18",
+			mundialesJugados: "8",
+			titulosMundiales: "0",
+			mejorResultado: "Octavos",
+			clasificacion2026: "Eliminatorias AFC",
+			debutante: false
+		},
+		"tunez": {
+			rankingFIFA: "31",
+			mundialesJugados: "6",
+			titulosMundiales: "0",
+			mejorResultado: "Fase de grupos",
+			clasificacion2026: "Eliminatorias CAF",
+			debutante: false
+		},
+		"uruguay": {
+			rankingFIFA: "11",
+			mundialesJugados: "14",
+			titulosMundiales: "2",
+			mejorResultado: "🏆 Campeón",
+			clasificacion2026: "Eliminatorias CONMEBOL",
+			debutante: false
+		},
+		"uzbekistan": {
+			rankingFIFA: "54",
+			mundialesJugados: "0",
+			titulosMundiales: "0",
+			mejorResultado: "Debutante",
+			clasificacion2026: "Eliminatorias AFC",
+			debutante: true
+		}
+	};
+
+	const stats = estadisticasPaises[paisSeleccionado] || {
+		rankingFIFA: "N/D",
+		mundialesJugados: "N/D",
+		titulosMundiales: "N/D",
+		mejorResultado: "N/D",
+		clasificacion2026: "N/D",
+		debutante: false
+	};
+
+	// Determinar color de acento según el país
+	const colorAcento = info.color || "#006847";
+	const esDebutante = stats.debutante;
+
+	// Construir HTML con recuadro de estadísticas estilo moderno
+	const contenidoHTML = `
+		<div style="font-family: 'Outfit', sans-serif;">
+			<!-- RECUADRO DE ESTADÍSTICAS - ESTILO MODERNO -->
+			<div style="
+				background: white;
+				border-radius: 16px;
+				padding: 20px;
+				margin-bottom: 20px;
+				box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+				border: 1px solid #e0e0e0;
+			">
+				<h3 style="
+					text-align: center;
+					color: #1a1a2e;
+					font-size: 1.2rem;
+					margin-bottom: 20px;
+					margin-top: 0;
+					font-weight: 700;
+					letter-spacing: 1px;
+				">📊 ESTADÍSTICAS</h3>
+				
+				<div style="
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 12px;
+					margin-bottom: 15px;
+				">
+					<!-- Ranking FIFA -->
+					<div style="
+						background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+						border-radius: 12px;
+						padding: 12px;
+						text-align: center;
+						color: white;
+					">
+						<div style="
+							font-size: 1.8rem;
+							font-weight: 800;
+							line-height: 1.2;
+						">#${stats.rankingFIFA}</div>
+						<div style="
+							font-size: 0.7rem;
+							opacity: 0.9;
+							letter-spacing: 0.5px;
+						">RANKING FIFA</div>
+					</div>
+					
+					<!-- Mundiales Jugados -->
+					<div style="
+						background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+						border-radius: 12px;
+						padding: 12px;
+						text-align: center;
+						color: white;
+					">
+						<div style="
+							font-size: 1.8rem;
+							font-weight: 800;
+							line-height: 1.2;
+						">${stats.mundialesJugados}</div>
+						<div style="
+							font-size: 0.7rem;
+							opacity: 0.9;
+							letter-spacing: 0.5px;
+						">MUNDIALES</div>
+					</div>
+					
+					<!-- Títulos Mundiales -->
+					<div style="
+						background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+						border-radius: 12px;
+						padding: 12px;
+						text-align: center;
+						color: #1a1a2e;
+					">
+						<div style="
+							font-size: 1.8rem;
+							font-weight: 800;
+							line-height: 1.2;
+						">${stats.titulosMundiales}</div>
+						<div style="
+							font-size: 0.7rem;
+							opacity: 0.8;
+							letter-spacing: 0.5px;
+						">TÍTULOS</div>
+					</div>
+					
+					<!-- Mejor Resultado (ahora con el mismo formato) -->
+					<div style="
+						background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+						border-radius: 12px;
+						padding: 12px;
+						text-align: center;
+						color: #1a1a2e;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						min-height: 80px;
+					">
+						<div style="
+							font-size: 1rem;
+							font-weight: 800;
+							line-height: 1.3;
+							margin-bottom: 4px;
+						">${stats.mejorResultado}</div>
+						<div style="
+							font-size: 0.65rem;
+							opacity: 0.8;
+							letter-spacing: 0.5px;
+						">MEJOR RESULTADO</div>
+					</div>
+				</div>
+				
+				<!-- Clasificación al Mundial 2026 -->
+				<div style="
+					background: #f0f2f5;
+					border-radius: 10px;
+					padding: 10px;
+					margin-top: 5px;
+					text-align: center;
+				">
+					<span style="color: ${colorAcento}; font-weight: 700;">⚽ Clasificación 2026:</span>
+					<span style="color: #333;"> ${stats.clasificacion2026}</span>
+				</div>
+				
+				${esDebutante ? `
+				<div style="
+					margin-top: 12px;
+					background: linear-gradient(135deg, ${colorAcento}, #004d33);
+					border-radius: 10px;
+					padding: 8px;
+					text-align: center;
+					font-weight: bold;
+					color: white;
+				">
+					🎉 ¡DEBUTANTE EN MUNDIALES! 🎉
+				</div>
+				` : ''}
+			</div>
+			
+			<!-- HISTORIA -->
+			<div style="
+				background: #f8f9fa;
+				border-radius: 12px;
+				padding: 15px;
+				margin-bottom: 15px;
+				border-left: 4px solid ${colorAcento};
+			">
+				<p style="text-align: justify; font-size: 0.9rem; line-height: 1.5; margin: 0; color: #333;">
+					${info.historia}
+				</p>
+			</div>
+			
+			<!-- DATO CURIOSO -->
+			<div style="
+				background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+				border-radius: 12px;
+				padding: 12px;
+				text-align: center;
+				font-size: 0.85rem;
+				color: #f0c040;
+			">
+				💡 ${info.datoCurioso || "¡Escanea el escudo para más información!"}
+			</div>
+		</div>
+	`;
+
 	Swal.fire({
-		title: `<strong>${info.titulo}</strong>`,
-		html: `<p style="text-align: justify; font-size: 1.1rem; line-height: 1.6;">${info.historia}</p>`,
+		title: `<strong style="font-size: 1.4rem; color: #1a1a2e;">${info.titulo}</strong>`,
+		html: contenidoHTML,
 		icon: "info",
 		showCancelButton: true,
-		confirmButtonText: "¡Hacer Trivia! 🎯",
+		confirmButtonText: "🎮 Jugar Trivia",
 		cancelButtonText: "Cerrar",
-		confirmButtonColor: info.color,
+		confirmButtonColor: info.color || "#006847",
 		cancelButtonColor: "#6c757d",
+		background: "#ffffff",
+		color: "#1a1a2e",
 		customClass: {
 			popup: "popup-pais",
-			title: "titulo-pais",
-		},
+			title: "titulo-pais"
+		}
 	}).then((result) => {
 		if (result.isConfirmed) {
 			lanzarTrivia(info.trivia, info.color);
@@ -1118,11 +1380,11 @@ window.addEventListener("load", () => {
 
 			// Restaurar HUD inicial
 			if (hudPais) {
-				hudPais.textContent = "Apunta a un escudo";
+				hudPais.textContent = "Apunta a una bandera";
 				hudPais.style.color = "";
 			}
 			dotEstado.style.backgroundColor = "#e74c3c";
-			textoEstado.textContent = "Apunta a un escudo de país";
+			textoEstado.textContent = "Apunta a una bandera";
 
 			// Ocultar botones
 			if (botonesContainer) botonesContainer.style.display = "none";
